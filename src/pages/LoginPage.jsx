@@ -24,7 +24,9 @@ function handleSubmit(e){
    e.preventDefault()
    const body = {email, password}
    axios.post(`${API}/auth/login`, body)
-   .then(()=>{
+       .then((response) => {
+           storeToken(response.data.authToken)
+           authenticateUser()
    navigate('/')
       
    })
