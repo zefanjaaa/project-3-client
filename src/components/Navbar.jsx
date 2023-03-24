@@ -5,10 +5,11 @@ function Navbar() {
   return (
     <div>
 
-
-    <Link to="/auth/signup"><button> Create an account</button></Link>
+<Link to="/"><button> Home</button></Link>
+<Link to="/auth/signup"><button> Create an account</button></Link>
+    <Link to="/auth/login"><button>Login</button></Link>
   
-    <Link to="/"><button> Home</button></Link>
+  
 
     
 
