@@ -27,7 +27,8 @@ function handleSubmit(e){
        .then((response) => {
            storeToken(response.data.authToken)
            authenticateUser()
-   navigate('./WishlistUserPage.jsx')
+  //  navigate('./WishlistUserPage.jsx')
+         navigate('../pages/WishlistUserPage.jsx')
       
    })
    .catch((error)=>{
