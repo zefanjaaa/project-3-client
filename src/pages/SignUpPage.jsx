@@ -28,10 +28,10 @@ function handleSubmit(e){
    axios.post(`${API}/auth/signup`, body)
    .then(()=>{
    navigate('/')
-   setEmail('')
-   setName('')
-   setSurname('')
-   setPassword('')
+//    setEmail('')
+//    setName('')
+//    setSurname('')
+//    setPassword('')
    })
    .catch((error)=>{
    const description = error.respond.data.message
@@ -47,22 +47,22 @@ function handleSubmit(e){
 <form action="" onSubmit={handleSubmit}>
 <label htmlFor="">
 email
-<input type="email" value={email} onChange={handleEmail}/>
+<input type="email" name="email" value={email} onChange={handleEmail}/>
 </label>
 
 <label htmlFor="" >
 Password
-<input type="password" value={password} onChange={handlePassword}/>
+<input type="password" name='password' value={password} onChange={handlePassword}/>
 </label>
 
 <label htmlFor="">
 Name
-<input type="text" value={name} onChange={handleName}/>
+<input type="text" value={name} name='password' onChange={handleName}/>
 </label>
 
 <label htmlFor="">
 Surname
-<input type="text" value={surname} onChange={handleSurname}/>
+<input type="text" value={surname} name='surname' onChange={handleSurname}/>
 </label>
 
 <button type='submit'>Submit</button>
