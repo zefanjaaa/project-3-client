@@ -34,7 +34,7 @@ function handleSubmit(e){
 //    setPassword('')
    })
    .catch((error)=>{
-   const description = error.respond.data.message
+   const description = error.response.data.message
    setErr(description)
    
   })

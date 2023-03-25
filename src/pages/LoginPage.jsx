@@ -31,7 +31,8 @@ function handleSubmit(e){
       
    })
    .catch((error)=>{
-   const description = error.respond.data.message
+    console.log(error)
+   const description = error.response.data.message
    setErr(description)
       
      })
