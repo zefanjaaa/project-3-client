@@ -18,15 +18,15 @@ function Navbar() {
       {isLoggedIn && ( 
         <>
           <button onClick={logOutUser}> Log Out</button>
-          <p> <b>Welcome:</b> {user && user.name}</p>
+            {/* <p> <b>Welcome:</b> {user && user.name}</p> */}
+            <Link to="/wishlist"><button>User Page</button></Link>
         </>
       )}
       </div>
   
       <div>
        <Link to='/product/products'><button><p>Products</p></button></Link> 
-        <p>Art</p>
-        <p>Homegoods</p>
+       
   </div>
 
     

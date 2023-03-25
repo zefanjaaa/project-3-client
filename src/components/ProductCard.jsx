@@ -7,9 +7,9 @@ function ProductCard({price, image, brand, nameOfProduct}) {
 
     <img src={image} alt="pic-product"/>
 
-    <p>{brand}</p>
-    <p>{nameOfProduct}</p>
-    <p>{price}</p>
+    <p><b>Brand : </b>{brand}</p>
+    <p><b>Image : {nameOfProduct}</b></p>
+    <p><b>Price : {price}</b></p>
     
     </div>
   )
