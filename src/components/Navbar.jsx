@@ -8,19 +8,23 @@ function Navbar() {
     <nav>
 <div>
 <Link to="/"><button> Home</button></Link>
-<Link to="/auth/signup"><button> Create an account</button></Link>
-      <Link to="/auth/login"><button>Login</button></Link>
 
+        {!isLoggedIn && (
+          <>
+          <Link to="/auth/signup"><button> Create an account</button></Link>
+      <Link to="/auth/login"><button>Login</button></Link>
+          </>
+)}
       {isLoggedIn && ( 
         <>
           <button onClick={logOutUser}> Log Out</button>
-          <p>{user && user.name}</p>
+          <p> <b>Welcome:</b> {user && user.name}</p>
         </>
       )}
       </div>
   
       <div>
-        <p>Products</p>
+       <Link to='/product/products'><button><p>Products</p></button></Link> 
         <p>Art</p>
         <p>Homegoods</p>
   </div>
