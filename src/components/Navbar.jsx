@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
+import { GoPerson } from 'react-icons/go'
+import {AiOutlineUser, AiOutlineLogout} from 'react-icons/ai'
+
 function Navbar() {
 
   const {isLoggedIn,user,logOutUser} = useContext(AuthContext)
@@ -17,9 +20,10 @@ function Navbar() {
 )}
       {isLoggedIn && ( 
         <>
-          <button onClick={logOutUser}> Log Out</button>
+            {/* <button onClick={logOutUser}> Log Out</button> */}
+            <AiOutlineLogout onClick={logOutUser} />
             {/* <p> <b>Welcome:</b> {user && user.name}</p> */}
-            <Link to="/wishlist"><button>User Page</button></Link>
+            <Link to="/wishlist"><AiOutlineUser /></Link>
         </>
       )}
       </div>
