@@ -59,6 +59,15 @@ function EditUser(props) {
         .catch((error) => console.log("THERE IS AN ERROR HANDELING EDIT SUBMIT",error))
     }
 
+    const deleteUser = () => {
+        const storeToken = localStorage.getItem('authToken')
+
+        axios.delete(`${API}/auth/${props.user._id}`, { headers: { Authorization: `Bearer ${storeToken}` } })
+        
+            .then(() => navigate('/'))
+        .catch((error) => {console.log('THERE IS AN ERROR DELETING THE USER',error)})
+    }
+
   return (
       <div>
           <h3>EDIT USER INFORMATION</h3>
@@ -70,8 +79,11 @@ function EditUser(props) {
               <label> Surname:</label>
               <input type='text' name='surname' value={surname} onChange={(event) => setSurname(event.target.value)}/>
 
-           <button type='submit'> Update user </button>
+              <button type='submit'> Update user </button>
+           
           </form>
+          <button onClick={deleteUser}>Delete the user </button>
+      
       </div>
   )
 }
