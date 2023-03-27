@@ -5,6 +5,8 @@ import { AuthContext } from '../context/auth.context';
 
 const API = "http://localhost:5005";
 
+// const storeToken = localStorage.getItem('authToken');
+
 function EditUser(props) {
 
     const [name, setName] = useState("")
@@ -18,9 +20,7 @@ function EditUser(props) {
     
     // const { userId } = useParams()
 
-
-
-    //NEW CODE ========
+//NEW CODE ========
 
     // const { user } = useContext(AuthContext)
     // const userId = user._id
@@ -55,9 +55,13 @@ function EditUser(props) {
         )
             .then((response) => {
             console.log('RESPONSE ==>',response)
+            setName("")
+            setSurname('')
             })
         .catch((error) => console.log("THERE IS AN ERROR HANDELING EDIT SUBMIT",error))
     }
+
+   
 
   return (
       <div>
@@ -71,7 +75,11 @@ function EditUser(props) {
               <input type='text' name='surname' value={surname} onChange={(event) => setSurname(event.target.value)}/>
 
            <button type='submit'> Update user </button>
+
+           
+
           </form>
+          
       </div>
   )
 }
