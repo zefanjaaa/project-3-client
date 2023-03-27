@@ -62,6 +62,26 @@ function EditUser(props) {
     }
 
    
+    const deleteUser = () => {
+        const storeToken = localStorage.getItem('authToken')
+
+        axios
+        .delete(`${API}/auth/${props.user._id}`, { headers: { Authorization: `Bearer ${storeToken}` } })
+        .then(() => {
+        
+        localStorage.removeItem('authToken')
+
+        
+        
+    })
+
+    .then(()=> 
+    navigate('/')
+    )
+
+        .catch((error) => {console.log('THERE IS AN ERROR DELETING THE USER',error)})
+
+    }
 
   return (
       <div>
@@ -80,6 +100,10 @@ function EditUser(props) {
 
           </form>
           
+           <button type='submit' onClick={deleteUser}> Delete user </button>
+           
+         
+      
       </div>
   )
 }
