@@ -9,6 +9,8 @@ const API = "http://localhost:5005";
 
 function EditUser(props) {
 
+
+    const {isLoggedIn,user,logOutUser} = useContext(AuthContext)
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     // const [password, setPassword] = useState("")
@@ -69,15 +71,15 @@ function EditUser(props) {
         .delete(`${API}/auth/${props.user._id}`, { headers: { Authorization: `Bearer ${storeToken}` } })
         .then(() => {
         
-        localStorage.removeItem('authToken')
+        // localStorage.removeItem('authToken')
 
-        
+        logOutUser()
         
     })
 
-    .then(()=> 
-    navigate('/')
-    )
+    // .then(()=> 
+    // navigate('/')
+    // )
 
         .catch((error) => {console.log('THERE IS AN ERROR DELETING THE USER',error)})
 
