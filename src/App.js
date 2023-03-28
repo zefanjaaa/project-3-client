@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import WishlistUserPage from "./pages/WishlistUserPage"
 import IsAnon from "./components/IsAnon";
 import EditUser from "./components/EditUser";
+import AddProductPage from "./pages/AddProductPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/auth/login" element={<IsAnon><LoginPage /></IsAnon>} />
         <Route path="/wishlist" element={<WishlistUserPage />} />
         {/* <Route path="/pages/WishlistUserPage.jsx" element={<WishlistUserPage />} /> */}
+        <Route path="/product/add" element={<AddProductPage />} />
       </Routes>
     </div>
   );
