@@ -27,7 +27,7 @@ function handleSubmit(e){
    const body = {email, password, surname, name}
    axios.post(`${API}/auth/signup`, body)
    .then(()=>{
-   navigate('/login')
+   navigate('/auth/login')
 //    setEmail('')
 //    setName('')
 //    setSurname('')
