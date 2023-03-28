@@ -22,18 +22,18 @@ function Navbar() {
 <Link to="/"><button> Home</button></Link>
 
         {!isLoggedIn && (
-          <>
+          <div>
           <Link to="/auth/signup"><button> Create an account</button></Link>
       <Link to="/auth/login"><button>Login</button></Link>
-          </>
+          </div>
 )}
       {isLoggedIn && ( 
-        <>
+        <div>
            
             <AiOutlineLogout onClick={logOutUser} />
        
             <Link to="/wishlist"><AiOutlineUser /></Link>
-        </>
+        </div>
       )}
       </div>
   
