@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
 import { GoPerson } from 'react-icons/go'
 import { AiOutlineUser, AiOutlineLogout, AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import test from './test.css'
+import './test.css'
 
 function Navbar() {
 
