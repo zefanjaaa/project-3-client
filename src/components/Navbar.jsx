@@ -17,7 +17,7 @@ function Navbar() {
 
   }
   return (
-    <nav>
+    <nav className='parent'>
 <div>
 <Link to="/"><button> Home</button></Link>
 
