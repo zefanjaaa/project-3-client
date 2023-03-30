@@ -1,9 +1,16 @@
+body{
+   margin: 0;
+   padding: 0;
+}
+
 .navbar{
    background-color: beige;
    height: 80px;
    display: flex;
    justify-content: start;
    align-items: center;
+   width: 100vw;
+   overflow: auto;
 }
 
 .menu-bars{
@@ -71,3 +78,5 @@
 span{
    margin-left: 16px;
 }
+
+

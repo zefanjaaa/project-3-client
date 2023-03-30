@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth.context';
-
+import './test.css'
 
 
 const API = "http://localhost:5005";

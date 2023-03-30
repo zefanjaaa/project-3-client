@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
 import { GoPerson } from 'react-icons/go'
 import { AiOutlineUser, AiOutlineLogout, AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import test from './test.css'
+import './test.css'
 
 function Navbar() {
 
@@ -24,7 +24,8 @@ function Navbar() {
         {!isLoggedIn && (
           <div>
           <Link to="/auth/signup"><button> Create an account</button></Link>
-      <Link to="/auth/login"><button>Login</button></Link>
+            <Link to="/auth/login"><button>Login</button></Link>
+           
           </div>
 )}
       {isLoggedIn && ( 
@@ -33,6 +34,7 @@ function Navbar() {
             <AiOutlineLogout onClick={logOutUser} />
        
             <Link to="/wishlist"><AiOutlineUser /></Link>
+            <Link to="/product/add"><button>add</button></Link>
         </div>
       )}
       </div>

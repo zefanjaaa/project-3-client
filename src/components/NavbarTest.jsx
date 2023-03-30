@@ -9,6 +9,8 @@ import { IconContext } from "react-icons";
 
 function NavbarTest() {
 
+const { isLoggedIn, logOutUser } = useContext(AuthContext)
+
 const [sideB, setSideB] = useState(false)
 
 const showSidebar = () => setSideB(!sideB)
@@ -16,7 +18,26 @@ const showSidebar = () => setSideB(!sideB)
 
 
   return (
-    <div>
+    <div className="navAll">
+    {!isLoggedIn && (
+      <div>
+      <Link to="/auth/signup"><button> Create an account</button></Link>
+        <Link to="/auth/login"><button>Login</button></Link>
+       
+      </div>
+)}
+
+{isLoggedIn && ( 
+   <div>
+      
+       <AiIcons.AiOutlineLogout onClick={logOutUser} />
+  
+       <Link to="/wishlist"><AiIcons.AiOutlineUser /></Link>
+       <Link to="/product/add"><button>add</button></Link>
+   </div>
+ )}
+
+
     <IconContext.Provider value={{color: '#fff'}}>
 
       <div className="navbar">

@@ -1,8 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
  
-const API_URL = "http://localhost:5005";
+import service from "../api/service";
+
+// const API_URL = "http://localhost:5005";
  
 function AddProductPage(props) {
   const [nameOfProduct, setNameOfProduct] = useState("");
@@ -12,45 +14,76 @@ function AddProductPage(props) {
   const [price, setPrice] = useState(0);
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(0);
-
+  const [ProductDetails, setProductDetails] = useState("");
 //   const [RelatedProducts, setRelatedProducts] = useState([]);
 
-  const [ProductDetails, setProductDetails] = useState("");
+ const navigate = useNavigate()
 
+  const handleFileUpload = (e) => {
+console.log('The file being uploaded is ===>', e.target.files[0])
 
+    const uploadData = new FormData()
+    
+    uploadData.append('image', e.target.files[0])
+    
+    service
+      .uploadImage(uploadData)
+      .then(value => {
+        console.log('THE RETURN VALUE IS ==>', value)
+        setImage(value.fileUrl)
+      })
+    .catch((error) => console.log('THERE IS AN ERROR UPLOADING IMAGE',error))
+}
 
-  const navigate = useNavigate("") //destructuring navigate to use it in function below
+ 
 
  
 function handleSubmit(e){
     e.preventDefault()
 
-    const bodyToPost = {nameOfProduct,brand,categoryOfProduct,image,price,size,quantity, RelatedProducts, ProductDetails} //like destructuring but upsidedown as we puting stuff into object
+    // const bodyToPost = {nameOfProduct,brand,categoryOfProduct,image,price,size,quantity, RelatedProducts, ProductDetails} //like destructuring but upsidedown as we puting stuff into object
     
-    axios.post(`${API_URL}/product/products`, bodyToPost)
-    .then (()=>{
+    // axios.post(`${API_URL}/product/products`, bodyToPost)
+    // .then (()=>{
+    //   setNameOfProduct('')
+    //   setBrand('')
+    //   setImage('')
+    //   setPrice(0)
+    //   setQuantity(0)
+    //   setProductDetails("")
+    //   setCategoryOfProduct('')
+    //   // setRelatedProducts([])
+    //   setSize('')
+
+    //   alert("Done")
+    //   navigate("/")
+
+  service
+    .addProduct({ nameOfProduct, brand, categoryOfProduct, image, price, size, quantity, ProductDetails })
+    .then(res => {
+      console.log("NEW PRODUCT ADDED", res)
+      
       setNameOfProduct('')
       setBrand('')
+      setCategoryOfProduct('')
       setImage('')
       setPrice(0)
-      setQuantity(0)
-      setProductDetails("")
-      setCategoryOfProduct('')
-      // setRelatedProducts([])
       setSize('')
+      setQuantity(0)
+      setProductDetails('')
 
-      alert("Done")
-      navigate("/")
-
-
+      navigate('/')
     })
-  }
+    .catch((error) => {console.log('there is an error adding a new product',error)})
+    }
+  
  
   return (
     <div>
-    <form action="" onSubmit={handleSubmit}>
+      <h3>New Product</h3>
+    <form onSubmit={handleSubmit}>
 
-        <label htmlFor=""> Name of the product</label>
+        <label> Name of the product</label>
         <input
           type="text"
           name="name"
@@ -58,7 +91,7 @@ function handleSubmit(e){
           onChange={(e) => setNameOfProduct(e.target.value)}
         />
  
-        <label htmlFor="">Brand</label>
+        <label>Brand</label>
         <input
           type="text"
           name="brand"
@@ -66,7 +99,7 @@ function handleSubmit(e){
           onChange={(e) => setBrand(e.target.value)}
         />
  
-        <label htmlFor="">Category</label>
+        <label>Category</label>
         <input
           type="text"
           name="category"
@@ -74,7 +107,7 @@ function handleSubmit(e){
           onChange={(e) => setCategoryOfProduct(e.target.value)}
         />
 
-        <label htmlFor="">Price</label>
+        <label>Price</label>
         <input
           type="number"
           name="price"
@@ -82,7 +115,7 @@ function handleSubmit(e){
           onChange={(e) => setPrice(e.target.value)}
         />
 
-        <label htmlFor="">Quantity</label>
+        <label>Quantity</label>
         <input
           type="number"
           name="quantity"
@@ -90,7 +123,7 @@ function handleSubmit(e){
           onChange={(e) => setQuantity(e.target.value)}
         />
 
-        <label htmlFor="">Size</label>
+        <label>Size</label>
         <input
           type="text"
           name="size"
@@ -98,15 +131,17 @@ function handleSubmit(e){
           onChange={(e) => setSize(e.target.value)}
         />
 
-        <label htmlFor="">Image</label>
+        {/* <label htmlFor="">Image</label>
         <input
           type="file"
           name="image"
           value={image}
           onChange={(e) => setImage(e.target.value)}
-        />
+        /> */}
 
-        <label htmlFor="">Details</label>
+        <input type='file' onChange={(event) => handleFileUpload(event)} />
+
+        <label>Details</label>
         <input
           type="text"
           name="details"
