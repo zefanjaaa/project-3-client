@@ -25,6 +25,7 @@ function AuthProviderWrapper(props) {
             )
                 .then((response) => {
                     const user = response.data
+                    console.log('THIS IS THE RESPONSE.DATA/USER',response.data)
                     setIsLoggedIn(true)
                     setIsLoading(false)
                     setUser(user)
