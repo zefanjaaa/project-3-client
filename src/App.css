@@ -3,87 +3,57 @@
 } */
 
 
-
-/* code from card vid Alex */
-
-html{
-  font-size: 62.5% ;
-  font-family: Arial, Helvetica, sans-serif ;
-
-}
-
-.App{
+/* .App{
   display: grid;
   grid-template-columns: 350px 350px 350px;
   justify-content: center;
+} */
+
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
+
+/* reset browser default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-.prodList{
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 5rem;
+body {
+  font-family: "Montserrat", sans-serif;
 }
 
-.prodCard {
-  position: relative;
-  background-color: rgb(240, 238, 238);
-  margin: 1rem;
-  flex: 1 0 25rem;
-  min-width: 30rem;
-  max-height: 50rem;
-  transition: 0.2s;
+/* ???? */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
 }
 
-.prodCard:hover{
-  transform: translateY(-0.5rem);
-  box-shadow: 0.5rem 0.75rem 1.5rem #bbb;
-
+p {
+  color: var(--small-text-color);
+  font-size: 1rem;
 }
 
-.prodCardPic{
-  margin-top: 2rem;
-  max-width: 70%;
-  height: auto;
+h1,
+h2 {
+  font-size: var(--heading-fontSize);
 }
 
-.prodCardCard{
-  position: absolute;
-  right: 0;
-  margin: 1rem;
-  font-size: 2rem;
-  transition: 0.2s;
-  cursor: pointer;
+ul {
+  list-style: none;
 }
 
-.prodCardWish{
-  position: absolute;
-  right: 3rem;
-  margin: 1rem;
-  font-size: 2rem;
-  transition: 0.2s;
-  cursor: pointer;
+a {
+  text-decoration: none;
+  color: unset;
 }
 
-.prodCardContent{
-  margin: 2rem;
-
-}
-
-.prodName{
-  font-size: 1.5rem;
-}
-
-.displayStack{
-margin: 2rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-
-}
-
-.prodPrice{
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-/* the end of the code from card vid Alex */
+/*  */
