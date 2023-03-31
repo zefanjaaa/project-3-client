@@ -80,9 +80,7 @@ function EditUser(props) {
         
     })
 
-    // .then(()=> 
-    // navigate('/')
-    // )
+    
 
         .catch((error) => {console.log('THERE IS AN ERROR DELETING THE USER',error)})
 
