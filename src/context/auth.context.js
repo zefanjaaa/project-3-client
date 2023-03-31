@@ -9,6 +9,8 @@ function AuthProviderWrapper(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const [user, setUser] = useState(null)
+    const [administrator, setAdministrator] = useState(null)
+
     const navigate = useNavigate()
 
     const storeToken = (token) => {
@@ -25,10 +27,14 @@ function AuthProviderWrapper(props) {
             )
                 .then((response) => {
                     const user = response.data
-                    console.log('THIS IS THE RESPONSE.DATA/USER',response.data)
+                    const adminCheck = response.data.isAdmin
+                    // console.log('THIS IS THE RESPONSE.DATA/USER', response.data.isAdmin)
+                    // console.log('SECOND CONSOLE.LOG', user.isAdmin)
+                    console.log('ADMINCHECK',adminCheck)
                     setIsLoggedIn(true)
                     setIsLoading(false)
                     setUser(user)
+                    setAdministrator(adminCheck)
                 })
                 .catch((error) => {
                     setIsLoggedIn(false)
@@ -57,7 +63,7 @@ function AuthProviderWrapper(props) {
     }, [])
     
     return (
-        <AuthContext.Provider value={{isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser}}>
+        <AuthContext.Provider value={{isLoggedIn, isLoading, user,administrator, storeToken, authenticateUser, logOutUser}}>
 {props.children}
         </AuthContext.Provider>
     )

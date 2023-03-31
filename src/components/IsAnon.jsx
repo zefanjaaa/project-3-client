@@ -11,6 +11,7 @@ function IsAnon({ children }) {
 
     if (isLoggedIn) {
         // return <Navigate to="/pages/WishlistUserPage.jsx" />;
+    
         return <Navigate to='/wishlist' />
     } else {
         return children

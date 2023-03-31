@@ -16,7 +16,7 @@ function WishlistUserPage() {
     <div>
    
     <h1>User enviroment </h1>
-      <p><b>Welcome :</b> {user && user.name}</p>
+      <p><b>Welcome :</b> {user && user.name} {user &&user.surname}</p>
       <button onClick={handleEdit}> Edit   </button>
       {edit ? <EditUser user={user}/> : <p></p>}
     

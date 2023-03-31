@@ -29,7 +29,7 @@ function EditUser(props) {
     // const { user } = useContext(AuthContext)
     // const userId = user._id
 
-  
+    
 
     useEffect(() => {
      
@@ -62,6 +62,7 @@ function EditUser(props) {
             setName("")
             setSurname('')
             })
+            
         .catch((error) => console.log("THERE IS AN ERROR HANDELING EDIT SUBMIT",error))
     }
 
