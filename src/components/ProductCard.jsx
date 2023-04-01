@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaShoppingCart, FaBookmark, } from "react-icons/fa";
+// import {FaShoppingCart, FaBookmark, } from "react-icons/fa";
 import "../style/ProductCard.css"
 import {motion} from "framer-motion"
 

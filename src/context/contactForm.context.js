@@ -1,10 +1,24 @@
 import React, {  useEffect,useState } from 'react'
+import ContactFormCard from '../components/ContactFormCard'
 
-const contactContext = React.createContext()
+const ContactContext = React.createContext()
 
-function contactProviderWrapper() {
+function ContactProviderWrapper(props) {
+    const [contact, setContact] = useState(false)
     
-
+    const showForm = () => {
+        if (!contact) {
+            setContact(<ContactFormCard />)
+        } else {
+           setContact(<p></p>) 
+        }
+    }
+    
+    return (
+        <ContactContext.Provider value={{contact,showForm}}>
+{props.children}
+        </ContactContext.Provider>
+    )
 }
 
-export {contactContext,contactProviderWrapper}
+export {ContactProviderWrapper,ContactContext}

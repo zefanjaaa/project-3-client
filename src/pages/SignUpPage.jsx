@@ -44,23 +44,23 @@ function handleSubmit(e){
    <div className="SignUpForm">
    <h3>Sign Up</h3>
 
-<form action="" onSubmit={handleSubmit}>
-<label htmlFor="">
+<form onSubmit={handleSubmit}>
+<label>
 email
 <input type="email" name="email" value={email} onChange={handleEmail}/>
 </label>
 
-<label htmlFor="" >
+<label>
 Password
 <input type="password" name='password' value={password} onChange={handlePassword}/>
 </label>
 
-<label htmlFor="">
+<label>
 Name
 <input type="text" value={name} name='password' onChange={handleName}/>
 </label>
-
-<label htmlFor="">
+          
+<label>
 Surname
 <input type="text" value={surname} name='surname' onChange={handleSurname}/>
 </label>

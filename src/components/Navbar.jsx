@@ -26,7 +26,8 @@ function Navbar() {
           {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}   
           {nav ? <h1>MENU</h1> : <p></p>}
           {nav ? <Link to="/"> Home</Link> : <p></p> }
-          {nav ? <Link to='/product/products'> <p>Products</p></Link> : <p></p>}
+        {nav ? <Link to='/product/products'> <p>Products</p></Link> : <p></p>}
+        
                
      </div>
     </div>

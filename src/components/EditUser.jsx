@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useNavigate} from 'react-router-dom'
+// import { useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth.context';
 import './test.css'
@@ -12,12 +12,12 @@ const API = "http://localhost:5005";
 function EditUser(props) {
 
 
-    const {isLoggedIn,user,logOutUser} = useContext(AuthContext)
+    const {logOutUser} = useContext(AuthContext)
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     // const [password, setPassword] = useState("")
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 //OLD CODE ===========
     
