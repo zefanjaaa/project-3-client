@@ -12,6 +12,8 @@ import IsAnon from "./components/IsAnon";
 // import NavbarTest from "./components/NavbarTest";
 import AddProductPage from "./pages/AddProductPage";
 import Admin from "./components/Admin";
+import ProductCard2 from "./components/ProductCard2";
+import SingleProductPage from "./pages/SingleProductPage";
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
         <Route path="/auth/signup" element={<SignUpPage />} />
         <Route path="/auth/login" element={<IsAnon><LoginPage /></IsAnon>} />
         <Route path="/wishlist" element={<WishlistUserPage />} />
-      
+      <Route path="/products/productsId" element={<SingleProductPage />} />
         <Route path="/product/add" element={<Admin><AddProductPage /></Admin>} />
       </Routes>
     </div>
