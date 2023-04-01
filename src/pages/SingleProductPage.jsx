@@ -7,14 +7,14 @@ const API_URL = "http://localhost:5005";
 
 
 
-function SingleProductPage() {
-    const [product, setProduct] = useState([])
+function SingleProductPage({nameOfProduct,brand}) {
+    const [product, setProduct] = useState(null)
     const { productId } = useParams()
 
     const getProduct = () => {
         const token = localStorage.getItem('authToken')
         axios.get(
-            `${API_URL}/product/${productId}`,
+            `${API_URL}/product/products/${productId}`,
             {headers: {Authorization:`Bearer${token}`}}
         )
             .then((res) => {
@@ -38,6 +38,7 @@ function SingleProductPage() {
               </div>
        )}
     </div>
+    
       
   )
 }

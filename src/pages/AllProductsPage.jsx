@@ -8,36 +8,36 @@ import ProductCard2 from '../components/ProductCard2';
 const API = "http://localhost:5005";
 
 function AllProductsPage() {
+  const [products, setProducts] = useState([]);
 
-const [products, setProducts] = useState([])
-
-const getAllProducts =() =>{
+  const getAllProducts = () => {
     const storedToken = localStorage.getItem("authToken");
 
-    axios.get( 
-        `${API}/product/products`,
-        {headers: {Authorization: `Bearer ${storedToken}`}}
-    )
+    axios
+      .get(`${API}/product/products`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
 
-        .then((response) => setProducts(response.data))
-    .catch((error) => (console.log('THERE IS AN ERROR ==>', error)))
-}
+      .then((response) => setProducts(response.data))
+      .catch((error) => console.log("THERE IS AN ERROR ==>", error));
+  };
 
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
-    useEffect(() => {
-    getAllProducts()
-    }, [])
-    
   return (
+    <div className="allProductsPage">
+    
       <div className='allProductsPage' key={products._id}>
           
     <form>
           {products.map((products) => <ProductCard key={products._id} {...products} products={products}/>)}
 
-          </form>
-    
+              </form>
+              </div>
     </div>
   )
 }
 
-export default AllProductsPage
+export default AllProductsPage;

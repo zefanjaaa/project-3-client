@@ -8,12 +8,13 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import WishlistUserPage from "./pages/WishlistUserPage"
 import IsAnon from "./components/IsAnon";
-
-// import NavbarTest from "./components/NavbarTest";
+import Testpage from "./pages/testpage";
+import NavbarTest from "./components/NavbarTest";
 import AddProductPage from "./pages/AddProductPage";
 import Admin from "./components/Admin";
 import ProductCard2 from "./components/ProductCard2";
 import SingleProductPage from "./pages/SingleProductPage";
+import IsPrivate from "./components/IsPrivate";
 
 function App() {
   return (
@@ -21,9 +22,11 @@ function App() {
 
       
       
+      <NavbarTest/>
+      
       {/* <NavbarTest/> */}
       
-<Navbar />
+{/* <Navbar /> */}
 
     
 
@@ -35,8 +38,9 @@ function App() {
         <Route path="/product/products" element={<AllProductsPage />} />
         <Route path="/auth/signup" element={<SignUpPage />} />
         <Route path="/auth/login" element={<IsAnon><LoginPage /></IsAnon>} />
-        <Route path="/wishlist" element={<WishlistUserPage />} />
-      <Route path="/products/productsId" element={<SingleProductPage />} />
+        <Route path="/wishlist" element={<IsPrivate><WishlistUserPage /></IsPrivate>} />
+        <Route path="/product/:productId" element={<SingleProductPage />} />
+        {/* <Route path="/product/:productId" element={<Testpage />}/> */}
         <Route path="/product/add" element={<Admin><AddProductPage /></Admin>} />
       </Routes>
     </div>

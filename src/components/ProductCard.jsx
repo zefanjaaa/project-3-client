@@ -1,42 +1,40 @@
-import React from 'react'
+import React from "react";
+import * as AiIcons from "react-icons/ai";
+import "../style/ProductCard.css";
+import { motion } from "framer-motion";
+import { Link, useParams } from 'react-router-dom'
 // import {FaShoppingCart, FaBookmark, } from "react-icons/fa";
 import "../style/ProductCard.css"
-import { motion } from "framer-motion"
-import { Link } from 'react-router-dom'
 
 
 
-function ProductCard({price, image, brand, nameOfProduct,_id}) {
 
- return (
+function ProductCard({ price, image, brand, nameOfProduct,_id }) {
+
+  const { productId } = useParams()
   
-   <div className='prodList'>
-     
-     <div  className="prodCard">
-     
-<Link to={`/products/${_id}`}>
-       <h2 className='prodCard'> {nameOfProduct}</h2>
-       </Link>
-    <motion.img whileHover={{scale: 0.9}} src={image} alt="pic-product" className='prodCardPic'/>
+  const API_URL = "http://localhost:3000"
+  return (
+      <div key={nameOfProduct} className="prodCard">
+        <motion.img
+          whileHover={{ scale: 0.9 }}
+          src={image}
+          alt="pic-product"
+          className="prodCardPic"
+        />
 
-    
-    
+      <div className="prodCardContent">
+      
+        <Link to={`${API_URL}/product/${_id}`} >
+          <h3 className="prodPrice"> Name: {nameOfProduct}</h3>
+        </Link>
 
-    <div className='prodCardContent'>
-
-    <h3 className='prodPrice'>{brand}</h3>
-    <h1 className='prodName'>{nameOfProduct}</h1>
-    <p className='prodPrice'>${price}</p>
-    
-  
-   </div>
-
-
-    </div>
-
-    </div>
-  )
+          <h1 className="prodName">Brand: {brand}</h1>
+          <p className="prodPrice">$ {price}</p>
+          <AiIcons.AiFillAlipaySquare></AiIcons.AiFillAlipaySquare>
+        </div>
+      </div>
+  );
 }
 
-export default ProductCard
-
+export default ProductCard;
