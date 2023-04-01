@@ -2,6 +2,10 @@ import React from "react";
 import * as AiIcons from "react-icons/ai";
 import "../style/ProductCard.css";
 import { motion } from "framer-motion";
+import React from 'react'
+// import {FaShoppingCart, FaBookmark, } from "react-icons/fa";
+import "../style/ProductCard.css"
+import {motion} from "framer-motion"
 
 function ProductCard({ price, image, brand, nameOfProduct }) {
   return (

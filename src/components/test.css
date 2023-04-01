@@ -1,4 +1,4 @@
-#test {
+/* #test {
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
 
@@ -9,6 +9,4 @@
   left: 0px;
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
-  width: 100%;
-  background-color: blue;
 }

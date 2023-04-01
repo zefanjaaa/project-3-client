@@ -8,19 +8,22 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import WishlistUserPage from "./pages/WishlistUserPage"
 import IsAnon from "./components/IsAnon";
-import EditUser from "./components/EditUser";
-import NavbarTest from "./components/NavbarTest";
+
+// import NavbarTest from "./components/NavbarTest";
 import AddProductPage from "./pages/AddProductPage";
+import Admin from "./components/Admin";
 
 function App() {
   return (
     <div className="App">
 
       
-     
+      
       <NavbarTest/>
       
-
+      {/* <NavbarTest/> */}
+      
+<Navbar />
 
     
 
@@ -33,8 +36,8 @@ function App() {
         <Route path="/auth/signup" element={<SignUpPage />} />
         <Route path="/auth/login" element={<IsAnon><LoginPage /></IsAnon>} />
         <Route path="/wishlist" element={<WishlistUserPage />} />
-        {/* <Route path="/pages/WishlistUserPage.jsx" element={<WishlistUserPage />} /> */}
-        <Route path="/product/add" element={<AddProductPage />} />
+      
+        <Route path="/product/add" element={<Admin><AddProductPage /></Admin>} />
       </Routes>
     </div>
   );
