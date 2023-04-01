@@ -7,7 +7,7 @@ const API_URL = "http://localhost:5005";
 
 
 
-function SingleProductPage({nameOfProduct,brand}) {
+function SingleProductPage() {
     const [product, setProduct] = useState(null)
     const { productId } = useParams()
 
@@ -33,8 +33,16 @@ function SingleProductPage({nameOfProduct,brand}) {
       <div>
           {product && (
               <div>
+                  <img src={product.image} alt='pic-product' />
+
                   <h3>{product.nameOfProduct}</h3>
+
+                  <br />
+                  <br />
                   <p><b>Brand :</b> {product.brand}</p>
+                  <p> <b>$ :</b> {product.price}</p>
+                  <p><b> Size :</b> {product.size}</p>
+                  <p><b> Category:</b> {product.categoryOfProduct}</p>
               </div>
        )}
     </div>

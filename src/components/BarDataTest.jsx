@@ -1,3 +1,4 @@
+// import path from 'path';
 import React from 'react'
 
 import * as AiIcons from "react-icons/ai";
@@ -27,7 +28,13 @@ export const BarDataTest = [
       path: "/",
       icon: <AiIcons.AiFillAppstore/>,
       className: "nav-text"
-    }, 
+  }, 
+  {
+    title: "Contact",
+    path: '/contactpage',
+    icon: <IoIcons.IoIosAlbums/>,
+    className: "nav-text"
+    }
   
 
 ]
