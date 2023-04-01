@@ -9,7 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import WishlistUserPage from "./pages/WishlistUserPage"
 import IsAnon from "./components/IsAnon";
 
-// import NavbarTest from "./components/NavbarTest";
+import NavbarTest from "./components/NavbarTest";
 import AddProductPage from "./pages/AddProductPage";
 import Admin from "./components/Admin";
 
@@ -21,9 +21,9 @@ function App() {
       
       <NavbarTest/>
       
-      {/* <NavbarTest/> */}
+
       
-<Navbar />
+{/* <Navbar /> */}
 
     
 
