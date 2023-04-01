@@ -8,6 +8,12 @@
 /* google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 
+:root {
+  --heading-color: purple;
+  --fs-small: 0.5rem
+}
+
+
 
 /* reset browser default */
 * {
@@ -41,6 +47,7 @@ p {
 h1,
 h2 {
   font-size: var(--heading-fontSize);
+  color: var(--heading-color);
 }
 
 ul {
@@ -53,3 +60,9 @@ a {
 }
 
 /*  */
+
+@media (max-width: 1000px) {
+  :root {
+    --heading-color: red
+  }
+}

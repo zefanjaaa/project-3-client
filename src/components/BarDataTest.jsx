@@ -23,7 +23,7 @@ export const BarDataTest = [
     }, 
 
     {
-      title: "Sale",
+      title: "Art",
       path: "/",
       icon: <AiIcons.AiFillAppstore/>,
       className: "nav-text"

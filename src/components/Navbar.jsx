@@ -17,7 +17,7 @@ function Navbar() {
 
   }
   return (
-    <nav>
+    <nav className='parent'>
 <div>
 <Link to="/"><button> Home</button></Link>
 
@@ -43,7 +43,7 @@ function Navbar() {
        {/* <Link to='/product/products'><button><p>Products</p></button></Link>  */}
        
       </div>
-      <div className='parent' onClick={handleNav}>
+      <div onClick={handleNav}>
       
           
       {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}   
