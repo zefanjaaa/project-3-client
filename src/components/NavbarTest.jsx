@@ -6,13 +6,26 @@ import * as AiIcons from "react-icons/ai";
 import { BarDataTest } from "./BarDataTest";
 import "../style/NavTest.css";
 import { IconContext } from "react-icons";
+import { Button, Modal } from "react-bootstrap";
+import { CartContex } from "../context/cartContex";
+import Cart from "./Cart";
 
-function NavbarTest() {
+
+function NavbarTest({ price, image, brand, nameOfProduct, quantity }) {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   const [sideB, setSideB] = useState(false);
 
   const showSidebar = () => setSideB(!sideB);
+ 
+  //Cart Logic
+  const [ show, setShow] = useState(false); // for cart Modal
+  const handleCloseModal = () => setShow(false);
+  const handleShowModal = () => setShow(true);
+
+  const cart = useContext(CartContex);
+
+  const prodCount = cart.items.reduce((sum, prod)=> sum + prod.quantity, 0); //all broke here
 
   return (
     <div className="navAll">
@@ -36,7 +49,10 @@ function NavbarTest() {
           </Link>
           <Link to="/product/add">
             <button>add</button>
-          </Link>
+         </Link>
+
+          <Button variant="dark" onClick={handleShowModal}>Cart ({prodCount} Items) </Button>
+
         </div>
       )}
 
@@ -66,6 +82,47 @@ function NavbarTest() {
           </ul>
         </nav>
       </IconContext.Provider>
+
+      
+      <Modal  show={show} onHide={handleCloseModal}>
+      
+      <Modal.Header closeButton>
+       
+      <Modal.Title>Shopping Cart</Modal.Title>
+       
+      </Modal.Header>
+
+      <Modal.Body>
+            {prodCount > 0 ?
+             <div>
+                 <p>Items in Your Cart:</p>
+                 {cart.items.map((currentProd, index) =>(
+                  
+                  <Cart key={index} quantity={currentProd.quantity}></Cart> 
+                  
+                 ))}
+                  {/* Cart <<<<<<<- id={currentProd._id} quantity={current.quantity}*/}
+
+                {/*  <h1>Total Cost: {cart.}</h1> */}
+
+               <Button variant="dark">
+               Purchase items!
+               </Button>
+
+             </div>
+
+            : 
+
+               <h1>No Items In Your Cart</h1>
+            }
+
+           <h2> Shopping Cart </h2>
+
+      </Modal.Body>
+      
+      </Modal>
+
+
     </div>
   );
 }

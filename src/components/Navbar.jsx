@@ -1,9 +1,9 @@
-import React, { useContext, useState } from react
-import { Link } from react-router-dom
+import React, { useContext, useState } from "react"
+import { Link } from "react-router-dom"
 import { AuthContext } from '../context/auth.context'
 // import { GoPerson } from ‘react-icons/go’
 import { AiOutlineUser, AiOutlineLogout, AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import './test.css'
+
 function Navbar() {
   const { isLoggedIn, logOutUser,administrator } = useContext(AuthContext)
   const [nav,setNav] = useState(false)

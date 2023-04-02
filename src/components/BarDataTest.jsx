@@ -28,6 +28,20 @@ export const BarDataTest = [
       icon: <AiIcons.AiFillAppstore/>,
       className: "nav-text"
     }, 
+    {
+      title: "CheckOut",
+      path: "/checkout",
+      icon: <AiIcons.AiFillAppstore/>,
+      className: "nav-text"
+    }, 
+
+    {
+      title: "Wishlist",
+      path: "/wishlist",
+      icon: <AiIcons.AiFillAppstore/>,
+      className: "nav-text"
+    }, 
+  
   
 
 ]
