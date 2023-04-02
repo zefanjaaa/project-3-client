@@ -8,7 +8,11 @@ import { useContext } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
 
-function ProductCard({ price, image, brand, nameOfProduct }) {
+function ProductCard({ price, image, brand, nameOfProduct,_id }) {
+
+  const { productId } = useParams()
+  
+  const API_URL = "http://localhost:3000"
   
   const cart = useContext(CartContex);
   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);

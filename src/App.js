@@ -13,6 +13,9 @@ import AddProductPage from "./pages/AddProductPage";
 import Admin from "./components/Admin";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartProvider from "./context/cartContex";
+import SingleProductPage from "./pages/SingleProductPage";
+import IsPrivate from "./components/IsPrivate";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -32,10 +35,11 @@ function App() {
         <Route path="/product/products" element={<AllProductsPage />} />
         <Route path="/auth/signup" element={<SignUpPage />} />
         <Route path="/auth/login" element={<IsAnon><LoginPage /></IsAnon>} />
-        <Route path="/wishlist" element={<WishlistUserPage />} />
+        <Route path="/wishlist" element={<IsPrivate><WishlistUserPage /></IsPrivate>} />
+        <Route path="/product/:productId" element={<SingleProductPage />} />
         <Route path="/checkout" element={<CheckOutPage></CheckOutPage>} />
         <Route path="/product/add" element={<Admin><AddProductPage /></Admin>} />
-
+        <Route path="/contactpage" element={<ContactPage />} />
       </Routes>
     </div>
     </CartProvider>

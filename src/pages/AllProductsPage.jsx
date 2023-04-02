@@ -1,7 +1,9 @@
-import React from "react";
-import ProductCard from "../components/ProductCard";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import React from 'react'
+import ProductCard from '../components/ProductCard'
+import { useState, useEffect } from 'react'
+import axios from "axios"
+import ProductCard2 from '../components/ProductCard2';
+
 
 const API = "http://localhost:5005";
 
@@ -26,11 +28,16 @@ function AllProductsPage() {
 
   return (
     <div className="allProductsPage">
-      {products.map((products) => (
-        <ProductCard key={products._id} {...products} />
-      ))}
+    
+      <div className='allProductsPage' key={products._id}>
+          
+    <form>
+          {products.map((products) => <ProductCard key={products._id} {...products} products={products}/>)}
+
+              </form>
+              </div>
     </div>
-  );
+  )
 }
 
 export default AllProductsPage;
