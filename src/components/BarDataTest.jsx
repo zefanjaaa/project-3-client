@@ -49,7 +49,14 @@ export const BarDataTest = [
     path: '/contactpage',
     icon: <IoIcons.IoIosAlbums/>,
     className: "nav-text"
-    }
+    },
   
+    {
+      title: "Add Product",
+      path: '/product/add',
+      icon: <IoIcons.IoIosAlbums/>,
+      className: "nav-text"
+      }
+    
 
 ]

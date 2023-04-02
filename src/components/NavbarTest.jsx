@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
+import * as BsIcons from "react-icons/bs";
 import { BarDataTest } from "./BarDataTest";
 import "../style/NavTest.css";
 import { IconContext } from "react-icons";
@@ -29,6 +30,12 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity }) {
 
   return (
     <div className="navAll">
+    <IconContext.Provider value={{ color: "#fff" }}>
+    <div className="navbar">
+     
+        <FaIcons.FaBars onClick={showSidebar} />
+     
+    
       {!isLoggedIn && (
         <div>
           <Link to="/auth/signup">
@@ -42,26 +49,22 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity }) {
 
       {isLoggedIn && (
         <div>
-          <AiIcons.AiOutlineLogout onClick={logOutUser} />
+          <AiIcons.AiOutlineLogout onClick={logOutUser} className="IconLogOut"/>
 
-          <Link to="/wishlist">
+          <Link to="/wishlist" className="IconPerson">
             <AiIcons.AiOutlineUser />
           </Link>
-          <Link to="/product/add">
-            <button>add</button>
-         </Link>
 
-          <Button variant="dark" onClick={handleShowModal}>Cart ({prodCount} Items) </Button>
+          {/*<Link to="/product/add">
+            <button>add</button>
+      </Link>*/}
+
+          <BsIcons.BsBagFill className="IconBag" onClick={handleShowModal}>Cart ({prodCount} Items) </BsIcons.BsBagFill>
 
         </div>
       )}
 
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar">
-         
-            <FaIcons.FaBars onClick={showSidebar} />
-         
-        </div>
+      </div>
 
         <nav className={sideB ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
