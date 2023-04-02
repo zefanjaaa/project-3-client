@@ -59,7 +59,8 @@ body {
 }
 
 .nav-text a:hover {
-  background-color: rgb(52, 50, 50);
+  background-color: rgb(41, 40, 40);
+  color: whitesmoke;
 }
 
 .nav-menu-items {
@@ -79,10 +80,10 @@ span {
   margin-left: 16px;
 }
 
-/* 
-.IconBag{
 
-}
+/* .IconBag{
+
+} 
 
 
 .IconPerson{
@@ -92,4 +93,4 @@ span {
 .IconLogOut{
  
   
-} */
+}  */
