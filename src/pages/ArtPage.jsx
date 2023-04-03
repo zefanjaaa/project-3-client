@@ -1,9 +1,5 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React,{ useState, useEffect } from 'react'
 import axios from "axios"
-
-
-
 
 const API = "http://localhost:5005";
 
@@ -25,8 +21,6 @@ function ArtPage() {
           setProducts(response.data)
        
         })
-       
-      
         .catch((error) => console.log("THERE IS AN ERROR ==>", error));
     };
   
@@ -34,14 +28,6 @@ function ArtPage() {
       getAllProducts();
     }, []);
   
-  
-
- 
-  
-
-  
-  
-
   
   useEffect(() => {const filterProducts = () => {
     const filteredProducts = products.filter(product => product.categoryOfProduct === "Art");
