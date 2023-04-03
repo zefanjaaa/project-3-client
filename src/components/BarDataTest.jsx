@@ -1,6 +1,7 @@
 // import path from 'path';
 import React from 'react'
 
+
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 
@@ -25,10 +26,16 @@ export const BarDataTest = [
 
     {
       title: "Art",
-      path: "/",
+      path: "/product/art",
       icon: <AiIcons.AiFillAppstore/>,
       className: "nav-text"
-    }, 
+  }, 
+  {
+    title: "Homegoods",
+    path: "/product/homegoods",
+    icon: <AiIcons.AiFillAppstore />,
+    className: "nav-text"
+    },
     {
       title: "CheckOut",
       path: "/checkout",
