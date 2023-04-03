@@ -2,7 +2,7 @@ import React from 'react'
 import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 import axios from "axios"
-import ProductCard2 from '../components/ProductCard2';
+
 
 
 const API = "http://localhost:5005";
@@ -18,7 +18,11 @@ function AllProductsPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
 
-      .then((response) => setProducts(response.data))
+      .then((response) => {
+        setProducts(response.data)
+        console.log('RESPONSE.DATA',response.data)
+      })
+     
       .catch((error) => console.log("THERE IS AN ERROR ==>", error));
   };
 
@@ -28,10 +32,12 @@ function AllProductsPage() {
 
   return (
     <div className="allProductsPage">
+      
     
       <div className='allProductsPage' key={products._id}>
           
-    <form>
+        <form>
+        <h1>All Products Page</h1>
           {products.map((products) => <ProductCard key={products._id} {...products} products={products}/>)}
 
               </form>

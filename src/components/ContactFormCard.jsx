@@ -4,16 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const API = "http://localhost:5005";
 
-// function ContactFormCard({ email, name, text }) {
-  
-//   return (
-//       <div>
-//           <p><b>Name:</b> {name}</p>
-//           <p><b>Email:</b>{email}</p>
-//           <p><b>Text:</b>{text}</p>
-//     </div>
-//   )
-// }
+
 
 function ContactFormCard() {
   

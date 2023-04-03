@@ -10,7 +10,7 @@ function IsAnon({ children }) {
     if (isLoading) return <p>ITS LOAAAADING</p>
 
     if (isLoggedIn) {
-        // return <Navigate to="/pages/WishlistUserPage.jsx" />;
+      
     
         return <Navigate to='/wishlist' />
     } else {
