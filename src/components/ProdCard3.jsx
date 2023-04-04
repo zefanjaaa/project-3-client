@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 function ProdCard3({ price, image, brand, nameOfProduct,_id }) {
 
@@ -26,9 +27,9 @@ return (
       <Card.Body className='cardBody'>
         <Card.Title className='BrandText'>{brand}</Card.Title>
         <Card.Text>
-
+<Link to={`${API_URL}/product/${_id}`}>
         <h3 className="prodNameText">{nameOfProduct}</h3>
-        
+        </Link>
         <Card.Text className="prodPriceText">${price}</Card.Text>
 
         <FaIcons.FaHeart></FaIcons.FaHeart>

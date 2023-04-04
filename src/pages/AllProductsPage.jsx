@@ -39,6 +39,7 @@ function AllProductsPage() {
           
     <form>
           {products.map((products) => <ProdCard3 key={products._id} {...products} products={products}/>)}
+          {/* {products.map((products) => <ProductCard key={products._id} {...products} products={products}/>)} */}
 
               </form>
               </div>
