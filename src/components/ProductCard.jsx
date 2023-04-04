@@ -1,4 +1,3 @@
-
 import "../style/ProductCard.css";
 import { motion } from "framer-motion";
 import React from 'react'
@@ -6,6 +5,7 @@ import "../style/ProductCard.css"
 import { CartContex } from "../context/cartContex";
 import { useContext } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 function ProductCard({ price, image, brand, nameOfProduct,_id }) {
@@ -27,10 +27,15 @@ function ProductCard({ price, image, brand, nameOfProduct,_id }) {
           className="prodCardPic"
         />
 
-        <div className="prodCardContent">
-          <h3 className="prodPrice">{brand}</h3>
+      <div className="prodCardContent">
+        <Link to={`${API_URL}/product/${_id}`}>
           <h1 className="prodName">{nameOfProduct}</h1>
-          <p className="prodPrice">${price}</p>
+          </Link>
+        <h3 className="prodPrice">{brand}</h3>
+        <p className="prodPrice">${price}</p>
+
+
+        {/* Add to cart logic */}
 
          {ProductQuantity > 0 ?
            <div>

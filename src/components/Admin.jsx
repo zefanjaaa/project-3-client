@@ -9,7 +9,7 @@ function Admin({ children }) {
 
   if (administrator) {
     return children;
-    // return    console.log("==> I AM AN ADMIN <===")
+  
   } else {
     return <Navigate to="/" />;
   }

@@ -19,7 +19,11 @@ function AllProductsPage() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
 
-      .then((response) => setProducts(response.data))
+      .then((response) => {
+        setProducts(response.data)
+        console.log('RESPONSE.DATA',response.data)
+      })
+     
       .catch((error) => console.log("THERE IS AN ERROR ==>", error));
   };
 
@@ -29,6 +33,7 @@ function AllProductsPage() {
 
   return (
     <div className="allProductsPage">
+      
     
       <div className='allProductsPage' key={products._id}>
           

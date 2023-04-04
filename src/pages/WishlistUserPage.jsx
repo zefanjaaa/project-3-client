@@ -1,48 +1,42 @@
-import React, { useContext,useState } from 'react'
-import { AuthContext } from '../context/auth.context'
-// import { ContactContext } from '../context/contactForm.context'
-import EditUser from '../components/EditUser'
-
-import ContactFormCard from '../components/ContactFormCard'
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/auth.context";
+import EditUser from "../components/EditUser";
+import ContactFormResult from "../components/ContactFormResult";
+import ContactFormCard from "../components/ContactFormCard";
 
 function WishlistUserPage() {
-  const { user } = useContext(AuthContext)
-  // const { showForm } = useContext(ContactContext)
+  const { user, administrator } = useContext(AuthContext);
 
-  const [edit, setEdit] = useState(false)
-  const [contact,setContact] = useState(false)
-  // const [form,setForm] = useState(false)
-  
-  
+  const [edit, setEdit] = useState(false);
+  const [contact, setContact] = useState(false);
+
   const handleEdit = () => {
-    setEdit(!edit)
-  }
-
-  // const handleForm = () => {
-  //   setForm(!form)
-  // }
+    setEdit(!edit);
+  };
 
   const handleContact = () => {
-    setContact(!contact)
-  }
-  
+    setContact(!contact);
+  };
+
   return (
     <div>
-   
-    <h1>User enviroment </h1>
-      <p><b>Welcome :</b> {user && user.name} {user && user.surname}</p>
-      
-      <button onClick={handleEdit}> Edit   </button>
+      <h1>User environment</h1>
+      <p>
+        <b>Welcome:</b> {user && user.name} {user && user.surname}
+      </p>
+
+      <button onClick={handleEdit}>Edit</button>
       {edit ? <EditUser user={user} /> : <p></p>}
 
-      <button onClick={handleContact}> Contact</button>
-      {contact ? <ContactFormCard /> : <p></p> }
+      {administrator ? (
+        <button onClick={handleContact}>Contact</button>
+      ) : (
+        <p></p>
+      )}
+      {administrator && contact ? <ContactFormResult /> : <p></p>}
 
-      {/* <button onClick={showForm}> contact</button> */}
-     {/* {form? <ContactFormCard showForm={showForm} /> : <p></p> } */}
-   
     </div>
-  )
+  );
 }
 
-export default WishlistUserPage
+export default WishlistUserPage;
