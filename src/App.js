@@ -19,6 +19,7 @@ import ContactPage from "./pages/ContactPage";
 import ArtPage from "./pages/ArtPage";
 import HomegoodsPage from "./pages/HomegoodsPage";
 import SalePage from "./pages/SalePage";
+import SingleContact from "./components/SingleContact";
 
 
 function App() {
@@ -46,7 +47,8 @@ function App() {
           <Route path="/contactpage" element={<ContactPage />} />
           <Route path="/product/art" element={<ArtPage />} />
           <Route path="/product/sale" element={<SalePage />}/>
-<Route path="/product/homegoods" element={<HomegoodsPage/>}/>
+          <Route path="/product/homegoods" element={<HomegoodsPage />} />
+          <Route path="/contact/:contactId" element={<SingleContact />}/>
       </Routes>
     </div>
     </CartProvider>
