@@ -1,54 +1,55 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { Link, useParams } from "react-router-dom"
-import ProductCard2 from '../components/ProductCard2'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import "../style/SingleProdPage.css";
 
 const API_URL = "http://localhost:5005";
 
-
-
 function SingleProductPage() {
-    const [product, setProduct] = useState(null)
-    const { productId } = useParams()
+  const [product, setProduct] = useState(null);
+  const { productId } = useParams();
 
-    const getProduct = () => {
-        const token = localStorage.getItem('authToken')
-        axios.get(
-            `${API_URL}/product/products/${productId}`,
-            {headers: {Authorization:`Bearer${token}`}}
-        )
-            .then((res) => {
-                const oneProduct = res.data;
-                setProduct(oneProduct)
-            })
-        .catch((error)=>{console.log('THERE IS AN ERROR',error)})
-}
+  const getProduct = () => {
+    const token = localStorage.getItem("authToken");
+    axios
+      .get(`${API_URL}/product/products/${productId}`, {
+        headers: { Authorization: `Bearer${token}` },
+      })
+      .then((res) => {
+        const oneProduct = res.data;
+        setProduct(oneProduct);
+      })
+      .catch((error) => {
+        console.log("THERE IS AN ERROR", error);
+      });
+  };
 
-    useEffect(() => {
-        getProduct()
-    }, [])
-    
-    
+  useEffect(() => {
+    getProduct();
+  }, []);
+
   return (
-      <div>
-          {product && (
-              <div>
-                  <img src={product.image} alt='pic-product' />
+    <div className="Page">
+      {product && (
+        <div className="details">
+          <img src={product.image} alt="pic-product" className="BigImg" />
+          <div />
 
-                  <h3>{product.nameOfProduct}</h3>
+          <div className="box">
+            <div className="row">
+              <h2>{product.nameOfProduct}</h2>
+              <h3>{product.brand} </h3>
 
-                  <br />
-                  <br />
-                  <p><b>Brand :</b> {product.brand}</p>
-                  <p> <b>$ :</b> {product.price}</p>
-                  <p><b> Size :</b> {product.size}</p>
-                  <p><b> Category:</b> {product.categoryOfProduct}</p>
-              </div>
-       )}
+              <span>${product.price}</span>
+            </div>
+
+            <p>Size:{product.size}</p>
+            <p>Category: {product.categoryOfProduct}</p>
+          </div>
+        </div>
+      )}
     </div>
-    
-      
-  )
+  );
 }
 
-export default SingleProductPage
+export default SingleProductPage;

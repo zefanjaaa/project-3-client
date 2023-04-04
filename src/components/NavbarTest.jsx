@@ -12,7 +12,7 @@ import { CartContex } from "../context/cartContex";
 import Cart from "./Cart";
 
 
-function NavbarTest({ price, image, brand, nameOfProduct, quantity }) {
+function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
   
   const { isLoggedIn, logOutUser,administrator } = useContext(AuthContext)
 
@@ -102,10 +102,11 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity }) {
                  <p>Items in Your Cart:</p>
                  {cart.items.map((currentProd, index) =>(
                   
-                  <Cart key={index} quantity={currentProd.quantity}></Cart> 
+                  <Cart key={index} quantity={currentProd.quantity} id={currentProd._id}></Cart> 
                   
                  ))}
-                  {/* Cart <<<<<<<- id={currentProd._id} quantity={current.quantity}*/}
+
+                  
 
                 {/*  <h1>Total Cost: {cart.}</h1> */}
 
@@ -122,12 +123,12 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity }) {
 
            <h2> Shopping Cart </h2>
 
-      </Modal.Body>
+           </Modal.Body>
       
-      </Modal>
+           </Modal>
 
 
-    </div>
+          </div>
   );
 }
 

@@ -27,7 +27,7 @@ return (
       <Card.Body className='cardBody'>
         <Card.Title className='BrandText'>{brand}</Card.Title>
         <Card.Text>
-<Link to={`${API_URL}/product/${_id}`}>
+        <Link to={`${API_URL}/product/${_id}`}>
         <h3 className="prodNameText">{nameOfProduct}</h3>
         </Link>
         <Card.Text className="prodPriceText">${price}</Card.Text>

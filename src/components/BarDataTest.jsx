@@ -71,12 +71,7 @@ export const BarDataTest = [
       className: "nav-text"
       },
 
-      {
-        title: "Test Single Product",
-        path: '/product/oneproduct',
-        icon: <IoIcons.IoIosAlbums/>,
-        className: "nav-text"
-        }
+
       
     
 
