@@ -35,6 +35,12 @@ export const BarDataTest = [
     path: "/product/homegoods",
     icon: <AiIcons.AiFillAppstore />,
     className: "nav-text"
+  },
+  {
+    title: "Sale",
+    path: "/product/sale",
+    icon: <AiIcons.AiFillAppstore />,
+    className: "nav-text"
     },
     {
       title: "CheckOut",

@@ -18,6 +18,7 @@ import IsPrivate from "./components/IsPrivate";
 import ContactPage from "./pages/ContactPage";
 import ArtPage from "./pages/ArtPage";
 import HomegoodsPage from "./pages/HomegoodsPage";
+import SalePage from "./pages/SalePage";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/product/add" element={<Admin><AddProductPage /></Admin>} />
           <Route path="/contactpage" element={<ContactPage />} />
           <Route path="/product/art" element={<ArtPage />} />
+          <Route path="/product/sale" element={<SalePage />}/>
 <Route path="/product/homegoods" element={<HomegoodsPage/>}/>
       </Routes>
     </div>

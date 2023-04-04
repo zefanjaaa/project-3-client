@@ -49,6 +49,7 @@ console.log(art)
             <img src={filter.image} alt='art' style={{maxHeight:"200px",maxWidth:"200px"}}/>
             <p><b>Name: </b> {filter.nameOfProduct}</p>
             <p><b>Brand:</b> {filter.brand}</p>
+            <p><b>Product details: </b> {filter.ProductDetails}</p>
           </div>
         ))}
     </div>
