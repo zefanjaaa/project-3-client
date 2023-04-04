@@ -13,7 +13,8 @@ import Cart from "./Cart";
 
 
 function NavbarTest({ price, image, brand, nameOfProduct, quantity }) {
-  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  
+  const { isLoggedIn, logOutUser,administrator } = useContext(AuthContext)
 
   const [sideB, setSideB] = useState(false);
 

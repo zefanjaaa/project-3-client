@@ -27,7 +27,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* ???? */
+/* ????
 h1,
 h2,
 h3,
@@ -57,12 +57,12 @@ ul {
 a {
   text-decoration: none;
   color: unset;
-}
+} */
 
 /*  */
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   :root {
     --heading-color: red
   }
-}
+} */

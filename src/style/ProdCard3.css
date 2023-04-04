@@ -1,0 +1,33 @@
+
+.pic:hover {
+   scale: 0.9
+}
+
+
+
+.BrandText{
+   font-size: 1rem;
+}
+
+.prodNameText{
+   font-size: 1rem;
+}
+
+.prodPriceText{
+   font-size: 0.9rem;
+   color: #793077;
+}
+
+/* .cardBody{
+   /* display: flex; */
+  /* justify-content: center; */
+  
+
+
+
+
+@media (max-width: 640px) {
+   .allProductsPage{
+     flex-direction: column;
+   }
+  }

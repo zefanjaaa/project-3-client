@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth.context'
+import '../style/Login.css'
 
 const API = "http://localhost:5005";
 
@@ -39,6 +40,8 @@ function handleSubmit(e){
      })
    }
    
+
+
   return (
     
     <div className="LoginForm">

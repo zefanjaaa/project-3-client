@@ -1,4 +1,4 @@
-import * as AiIcons from "react-icons/ai";
+
 import "../style/ProductCard.css";
 import { motion } from "framer-motion";
 import React from 'react'

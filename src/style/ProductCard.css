@@ -7,7 +7,7 @@
    justify-content: center;
  } */
  
- .allProductsPage{
+ /* .allProductsPage{
    display: flex;
    justify-content: space-around;
    width: 90%;
@@ -25,14 +25,14 @@
    border-radius: 15px;
 
  }
- 
+  */
  /* .prodCard:hover{
    transform: translateY(-0.5rem);
    box-shadow: 0.5rem 0.75rem 1.5rem #bbb;
  
  } */
  
- .prodCardPic{
+ /* .prodCardPic{
    margin-top: 2rem;
    max-width: 100%;
    height: auto;
@@ -47,9 +47,9 @@
    font-size: 2rem;
    transition: 0.2s;
    cursor: pointer;
- }
+ } */
  
- .prodCardWish{
+ /* .prodCardWish{
    position: absolute;
    right: 3rem;
    margin: 1rem;
@@ -65,9 +65,9 @@
  
  .prodName{
    font-size: 1.5rem;
- }
+ } */
  
- .displayStack{
+ /* .displayStack{
  margin: 2rem;
  display: flex;
  justify-content: space-between;
@@ -78,12 +78,12 @@
  .prodPrice{
    font-size: 1.5rem;
    font-weight: bold;
- }
+ } */
  
  /* the end of the code from card vid Alex */
  
  /* Desktop, Tablet, Mobile */
- @media (max-width: 1000px) {
+ /* @media (max-width: 1000px) {
   .allProductsPage{
     background-color: orangered;
   }
@@ -93,4 +93,4 @@
   .allProductsPage{
     flex-direction: column;
   }
- }
+ } */

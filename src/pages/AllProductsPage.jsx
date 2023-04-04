@@ -3,6 +3,7 @@ import ProductCard from '../components/ProductCard'
 import { useState, useEffect } from 'react'
 import axios from "axios"
 import ProductCard2 from '../components/ProductCard2';
+import ProdCard3 from '../components/ProdCard3';
 
 
 const API = "http://localhost:5005";
@@ -32,7 +33,7 @@ function AllProductsPage() {
       <div className='allProductsPage' key={products._id}>
           
     <form>
-          {products.map((products) => <ProductCard key={products._id} {...products} products={products}/>)}
+          {products.map((products) => <ProdCard3 key={products._id} {...products} products={products}/>)}
 
               </form>
               </div>

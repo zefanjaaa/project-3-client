@@ -13,15 +13,21 @@ import AddProductPage from "./pages/AddProductPage";
 import Admin from "./components/Admin";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartProvider from "./context/cartContex";
+import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import SingleProductPage from "./pages/SingleProductPage";
 import IsPrivate from "./components/IsPrivate";
 import ContactPage from "./pages/ContactPage";
 import ArtPage from "./pages/ArtPage";
 import HomegoodsPage from "./pages/HomegoodsPage";
+import TestSingleProdPage from "./pages/TestSingleProdPage";
 
 
 function App() {
   return (
+  <ThemeProvider
+  breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+  minBreakpoint="xxs"
+>
     <CartProvider>
     <div className="App">
 
@@ -42,12 +48,15 @@ function App() {
         <Route path="/product/:productId" element={<SingleProductPage />} />
         <Route path="/checkout" element={<CheckOutPage></CheckOutPage>} />
         <Route path="/product/add" element={<Admin><AddProductPage /></Admin>} />
-          <Route path="/contactpage" element={<ContactPage />} />
-          <Route path="/product/art" element={<ArtPage />} />
-<Route path="/product/homegoods" element={<HomegoodsPage/>}/>
+        <Route path="/contactpage" element={<ContactPage />} />
+        <Route path="/product/art" element={<ArtPage />} />
+        <Route path="/product/homegoods" element={<HomegoodsPage/>}/>
+        <Route path="/product/oneproduct" element={<TestSingleProdPage></TestSingleProdPage>}/>
+
       </Routes>
     </div>
     </CartProvider>
+    </ThemeProvider>
   );
 }
 
