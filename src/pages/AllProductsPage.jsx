@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import axios from "axios"
 import ProductCard2 from '../components/ProductCard2';
 import ProdCard3 from '../components/ProdCard3';
+import "../style/AllProdPage.css"
+import { Container } from 'react-bootstrap';
 
 
 const API = "http://localhost:5005";
@@ -32,18 +34,23 @@ function AllProductsPage() {
   }, []);
 
   return (
-    <div className="allProductsPage">
-      
+
+  <div className="allProductsPage">
+      <Container>
+      <h1>ALL NEW ARRIVALS</h1>
     
-      <div className='allProductsPage' key={products._id}>
+    <div className='allProducts' key={products._id}>
           
-    <form>
+    <ui className="ProdGrid">
           {products.map((products) => <ProdCard3 key={products._id} {...products} products={products}/>)}
           {/* {products.map((products) => <ProductCard key={products._id} {...products} products={products}/>)} */}
 
-              </form>
-              </div>
+    </ui>   
+
     </div>
+    </Container>
+  </div>
+
   )
 }
 
