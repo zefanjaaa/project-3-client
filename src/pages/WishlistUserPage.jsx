@@ -2,6 +2,7 @@ import React, { useContext,  useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import EditUser from "../components/EditUser";
 import ContactFormResult from "../components/ContactFormResult";
+import RenderWishlist from "../components/RenderWishlist";
 
 
 function WishlistUserPage() {
@@ -9,6 +10,7 @@ function WishlistUserPage() {
 
   const [edit, setEdit] = useState(false);
   const [contact, setContact] = useState(false);
+  const [wishlist,setWishlist] = useState(false)
 
   const handleEdit = () => {
     setEdit(!edit);
@@ -18,6 +20,9 @@ function WishlistUserPage() {
     setContact(!contact);
   };
 
+  const handleWishlist = () => {
+    setWishlist(!wishlist)
+  }
   return (
     <div>
       <h1>User environment</h1>
@@ -30,11 +35,12 @@ function WishlistUserPage() {
 
       {administrator ? (
         <button onClick={handleContact}>Contact</button>
-      ) : (
-        <p></p>
-      )}
+      ) : (<p></p>)}
       {administrator && contact ? <ContactFormResult /> : <p></p>}
 
+
+      <button onClick={handleWishlist}>wishlist</button>
+{wishlist ?  <RenderWishlist /> : <p></p> }
     </div>
   );
 }
