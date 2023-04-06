@@ -1,6 +1,8 @@
 import React,{ useState, useEffect } from 'react'
 import axios from "axios"
 import ProdCard3 from '../components/ProdCard3';
+import { Container } from 'react-bootstrap';
+import "../style/ArtPage.css"
 
 const API = "http://localhost:5005";
 
@@ -42,11 +44,17 @@ function ArtPage() {
 
 console.log(art)
   return (
-    <div>
+    <div className="allProductsPage">
+      <Container>
       <h1>ART</h1>
      
-      
+      <div className='allProducts' >
+      <ui className="ProdGrid">
       {art.map((product) => (<ProdCard3 key={product._id} {...product}/>))}
+      </ui>   
+
+      </div>
+      </Container>
     </div>
   )
 }
