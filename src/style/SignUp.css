@@ -2,26 +2,27 @@
    100% {background-size: 4000px 1000px;}
 } */
 
-.login{
+.login2{
    width: 90%;
    padding: 70px 30px 44px;
    border-radius: 22px;
    background: #161616;
    text-align: center;
+   margin-top: 70px;
    
 }
 
 @media (width >= 450px) {
-   .login { width: 380px;}
+   .login2 { width: 380px;}
 }
 
-.login > h2 {
+.login2 > h2 {
    font-size: 36px;
    font-weight: 100;
    margin: 0 0 4px;
 }
 
-.login > h3 {
+.login2 > h3 {
    color:  rgba(255, 255, 255, 0.38);
    margin: 0 0 30px;
    font-weight: 500;
@@ -86,11 +87,15 @@
 
 }
 
-.login-form Link {
-   color: rgb(110, 50, 110);
+.login-form .NavLinK {
+   color: rgb(196, 46, 196);
    font-size: 16px;
    text-align: left;
    text-decoration: none;
+}
+
+.NavLinK:hover{
+   color: whitesmoke;
 }
 
 .all{

@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
 import ProdCard3 from '../components/ProdCard3';
+import { Container } from 'react-bootstrap';
+import "../style/HomeGoods.css"
 
 
 const API = "http://localhost:5005";
@@ -38,11 +40,18 @@ filterProducts();
 }, [products]);
 
   return (
-      <div>
-      <h1>HOME DÉCOR</h1>
+    <div className="allProductsPage">
+    <Container>
+    <h1>HOME DÉCOR</h1>
     
-      
+    <div className='allProducts' >
+    <ui className="ProdGrid">
+
       {home.map((product) => (<ProdCard3 key={product._id} {...product}/>))}
+    </ui>   
+
+      </div>
+      </Container>
     </div>
   )
 }

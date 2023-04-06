@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import axios from 'axios'
 import "../style/SignUp.css"
 import * as RiIcons from "react-icons/ri";
@@ -47,7 +47,7 @@ function handleSubmit(e){
  return (
    
    <div className='all'>
-   <div className="login">
+   <div className="login2">
    
    <h2>Sign In</h2>
    <h3>Create an Account</h3>
@@ -97,7 +97,7 @@ function handleSubmit(e){
 
 {err && <p>{err}</p>}
 
-<Link to={"/auth/login"}>Already have an account? Login</Link>
+<NavLink className="NavLinK" to={"/auth/login"}>Already have an account? Login</NavLink>
 
 </form>
 </div>

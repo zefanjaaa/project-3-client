@@ -8,14 +8,14 @@ import AddtoWishlist from './AddtoWishlist';
 import { Col, Form, Row } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
-import { Link, useParams } from 'react-router-dom';
-
+import { Link, useParams,NavLink } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 
 function ProdCard3({ price, image, brand, nameOfProduct,_id,productId,userId }) {
   
   const API_URL = "http://localhost:3000"
   
-console.log(productId)
+  
    const cart = useContext(CartContex);
    const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
  
@@ -46,18 +46,20 @@ return (
     <Card style={{ width: '15rem'}}  key={nameOfProduct}>
       <Card.Img className='pic' whileHover={{ scale: 0.9 }} variant="top" src={image} alt="pic-product"/>
 
-      <Card.Body className='cardBody'>
-        <Card.Title className='BrandText'>{brand}</Card.Title>
+      <Card.Body className="cardBody">
         <Card.Text>
-        <Link to={`${API_URL}/product/${_id}`}>
-        <p className="prodNameText">{nameOfProduct}</p>
-        </Link>
-        <Card.Text className="prodPriceText">${price}</Card.Text>
+          <Card.Text className="ProdName">
+            <NavLink className="active" to={`${API_URL}/product/${_id}`}>
+              <p>{nameOfProduct}</p>
+            </NavLink>
+          </Card.Text>
 
-      
+          <Card.Text>
+            <p className="prodBrandText">{brand}</p>
+          </Card.Text>
 
         <AddtoWishlist productId={productId} userId={userId} />
-        
+       
         </Card.Text>
 
         
