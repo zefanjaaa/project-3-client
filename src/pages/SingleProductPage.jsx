@@ -57,6 +57,7 @@ function SingleProductPage(nameOfProduct,_id ) {
 
             <p>Size:{product.size}</p>
             <p>Category: {product.categoryOfProduct}</p>
+            <p>Details: {product.ProductDetails}</p>
 
             {ProductQuantity > 0 ?
               <div>
@@ -76,7 +77,9 @@ function SingleProductPage(nameOfProduct,_id ) {
               : //else
               <BsIcons.BsBagFill variant="dark" onClick={()=>cart.addOneToCart(nameOfProduct._id)}>Add to Cart</BsIcons.BsBagFill>
            }
-
+           <br></br>
+           
+           <FaIcons.FaHeart></FaIcons.FaHeart>
 
           </div>
         </div>
