@@ -50,7 +50,10 @@ console.log(art)
      
       <div className='allProducts' >
       <ui className="ProdGrid">
-      {art.map((product) => (<ProdCard3 key={product._id} {...product}/>))}
+            {art.map((products) => (<ProdCard3 key={products._id} {...products} productId={products._id} products={products} />))}
+            
+          {/* {products.map((products) => <ProdCard3 key={products._id} {...products} productId={products._id} products={products}/>)} */}
+
       </ui>   
 
       </div>

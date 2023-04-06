@@ -47,7 +47,7 @@ filterProducts();
     <div className='allProducts' >
     <ui className="ProdGrid">
 
-      {home.map((product) => (<ProdCard3 key={product._id} {...product}/>))}
+      {home.map((products) => (<ProdCard3 ProdCard3 key={products._id} {...products} productId={products._id} products={products} />))}
     </ui>   
 
       </div>

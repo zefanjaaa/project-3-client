@@ -38,7 +38,7 @@ function SalePage() {
       <div>
           <h1>SALE</h1>
       
-      {sale.map((product) => (<ProdCard3 key={product._id} {...product} />))}
+      {sale.map((products) => (<ProdCard3 ProdCard3 key={products._id} {...products} productId={products._id} products={products} />))}
     </div>
   )
 }

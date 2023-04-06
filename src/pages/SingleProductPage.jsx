@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { Col, Form, Row, Button } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
+import AddtoWishlist from "../components/AddtoWishlist";
 
 const API_URL = "http://localhost:5005";
 
@@ -100,7 +101,7 @@ function SingleProductPage() {
             )}
             <br></br>
 
-            <FaIcons.FaHeart></FaIcons.FaHeart>
+            <FaIcons.FaHeart><AddtoWishlist /></FaIcons.FaHeart>
           </div>
         </div>
       )}
