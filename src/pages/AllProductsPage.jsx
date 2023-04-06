@@ -1,8 +1,8 @@
 import React from 'react'
-import ProductCard from '../components/ProductCard'
+
 import { useState, useEffect } from 'react'
 import axios from "axios"
-import ProductCard2 from '../components/ProductCard2';
+
 import ProdCard3 from '../components/ProdCard3';
 import "../style/AllProdPage.css"
 import { Container } from 'react-bootstrap';

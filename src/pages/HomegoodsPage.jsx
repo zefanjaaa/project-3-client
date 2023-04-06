@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
+import ProdCard3 from '../components/ProdCard3';
+
 
 const API = "http://localhost:5005";
 
@@ -38,15 +40,9 @@ filterProducts();
   return (
       <div>
       <h1>HOME DÉCOR</h1>
-      {home.map(filter => (
-          <div key={filter._id}>
-            
-            <img src={filter.image} alt='art' style={{maxHeight:"200px",maxWidth:"200px"}}/>
-            <p><b>Name: </b> {filter.nameOfProduct}</p>
-          <p><b>Brand:</b> {filter.brand}</p>
-          <p><b>Product details: </b> {filter.ProductDetails}</p>
-          </div>
-        ))}
+    
+      
+      {home.map((product) => (<ProdCard3 key={product._id} {...product}/>))}
     </div>
   )
 }

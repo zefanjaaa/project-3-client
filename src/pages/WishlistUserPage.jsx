@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,  useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import EditUser from "../components/EditUser";
 import ContactFormResult from "../components/ContactFormResult";
-import ContactFormCard from "../components/ContactFormCard";
+
 
 function WishlistUserPage() {
   const { user, administrator } = useContext(AuthContext);
