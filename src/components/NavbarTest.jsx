@@ -13,6 +13,8 @@ import Cart from "./Cart";
 
 function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
   const { isLoggedIn, logOutUser, administrator } = useContext(AuthContext);
+  const { items, getTotalCost, getTotalItems, deleteWholeCart } =
+    useContext(CartContex);
 
   const [sideB, setSideB] = useState(false);
 
@@ -26,8 +28,10 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
   // const cart = useContext(CartContex);
 
   // const prodCount = cart.items.reduce((sum, prod)=> sum + prod.quantity, 0); all broke here
+  const totalItemsInCart = getTotalItems();
+  const totalPrice = getTotalCost();
 
-  return (
+  return ( 
     <div className="navAll">
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
@@ -58,7 +62,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
 
               {/*<Link to="/product/add">
             <button>add</button>
-      </Link>*/}
+            </Link>*/}
 
               <BsIcons.BsBagFill className="IconBag" onClick={handleShowModal}>
                 {" "}
@@ -91,7 +95,23 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
         </Modal.Header>
 
         <Modal.Body>
-          <h2> Shopping Cart </h2>
+          <h3>
+            {" "}
+            You have: {totalItemsInCart} items {totalPrice} price{" "}
+          </h3>
+        </Modal.Body>
+
+        <Modal.Body>
+          <button onClick={deleteWholeCart}> Delete Everything</button>
+        </Modal.Body>
+        <Modal.Body>
+          {items?.map((product) => (
+            <div>
+              <p className="p-test">{product.nameOfProduct}</p>
+              <p>{product.price}</p>
+            </div>
+          ))}
+
         </Modal.Body>
       </Modal>
     </div>

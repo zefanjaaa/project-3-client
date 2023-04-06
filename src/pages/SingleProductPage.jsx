@@ -8,18 +8,15 @@ import { Col, Form, Row, Button } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
 
-
 const API_URL = "http://localhost:5005";
 
-function SingleProductPage(nameOfProduct,_id ) {
+function SingleProductPage() {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
 
-
-  
+  console.log(product);
   const cart = useContext(CartContex);
-  const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
-
+  const ProductQuantity = cart.getProductQuantity(product?._id);
 
   const getProduct = () => {
     const token = localStorage.getItem("authToken");
@@ -59,28 +56,51 @@ function SingleProductPage(nameOfProduct,_id ) {
             <p>Category: {product.categoryOfProduct}</p>
             <p>Details: {product.ProductDetails}</p>
 
-            {ProductQuantity > 0 ?
+            {ProductQuantity > 0 ? (
               <div>
-     
-                 <Form as={Row}>
-             
-                   <Form.Label column="true" sm= "6">In Cart:{ProductQuantity}</Form.Label>
-                   <Col sm="6">
-                   <Button variant="dark" sm= "6" onClick={()=> cart.addOneToCart(nameOfProduct._id)} className="mx-2">+</Button>
-                   <Button variant="dark" sm= "6" onClick={()=> cart.removeOneFromCart(nameOfProduct._id)} className="mx-2">-</Button>
-                   
-                   </Col>
-                 </Form>
-                  <Button variant="dark" onClick={()=> cart.deleteCart(nameOfProduct.id)} className="my-2">Remove from Cart</Button>
+                <Form as={Row}>
+                  <Form.Label column="true" sm="6">
+                    In Cart:{ProductQuantity}
+                  </Form.Label>
+                  <Col sm="6">
+                    <Button
+                      variant="dark"
+                      sm="6"
+                      onClick={() => cart.addOneToCart(product)}
+                      className="mx-2"
+                    >
+                      +
+                    </Button>
+                    <Button
+                      variant="dark"
+                      sm="6"
+                      onClick={() => cart.removeOneFromCart(product)}
+                      className="mx-2"
+                    >
+                      -
+                    </Button>
+                  </Col>
+                </Form>
+                <Button
+                  variant="dark"
+                  onClick={() => cart.deleteCart(product)}
+                  className="my-2"
+                >
+                  Remove from Cart
+                </Button>
               </div>
-     
-              : //else
-              <BsIcons.BsBagFill variant="dark" onClick={()=>cart.addOneToCart(nameOfProduct._id)}>Add to Cart</BsIcons.BsBagFill>
-           }
-           <br></br>
-           
-           <FaIcons.FaHeart></FaIcons.FaHeart>
+            ) : (
+              //else
+              <BsIcons.BsBagFill
+                variant="dark"
+                onClick={() => cart.addOneToCart(product)}
+              >
+                Add to Cart
+              </BsIcons.BsBagFill>
+            )}
+            <br></br>
 
+            <FaIcons.FaHeart></FaIcons.FaHeart>
           </div>
         </div>
       )}
