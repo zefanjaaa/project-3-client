@@ -2,6 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import "../style/SignUp.css"
+import * as RiIcons from "react-icons/ri";
+import * as MdIcons from "react-icons/md";
+import { Container, Row } from 'react-bootstrap'
 
 
 const API = "http://localhost:5005";
@@ -41,40 +45,65 @@ function handleSubmit(e){
 }
 
  return (
-   <div className="SignUpForm">
-   <h3>Sign Up</h3>
+   
+   <div className='all'>
+   <div className="login">
+   
+   <h2>Sign In</h2>
+   <h3>Create an Account</h3>
+   
 
-<form onSubmit={handleSubmit}>
-<label>
-email
+<form className='login-form' onSubmit={handleSubmit}>
+
+<div className='textbox'>
 <input type="email" name="email" value={email} onChange={handleEmail}/>
-</label>
+  <span htmlFor="">
+   
+   <MdIcons.MdOutlineAlternateEmail></MdIcons.MdOutlineAlternateEmail>
+ 
+ </span>
+ </div>
 
-<label>
-Password
-<input type="password" name='password' value={password} onChange={handlePassword}/>
-</label>
+ <div className='textbox'>
+ <input type="password" name='password' value={password} onChange={handlePassword}/>
+   <span htmlFor="">
+    
+   <RiIcons.RiLockPasswordLine></RiIcons.RiLockPasswordLine>
+  
+  </span>
+  </div>
 
-<label>
-Name
-<input type="text" value={name} name='password' onChange={handleName}/>
-</label>
+  <div className='textbox'>
+  <input type="text" value={name} name='password' onChange={handleName}/>
+   <span htmlFor="">
+    
+    name
+  
+  </span>
+  </div>
+
+  <div className='textbox'>
+  <input type="text" value={surname} name='surname' onChange={handleSurname}/>
+   <span htmlFor="">
+    
+    surname
+  
+  </span>
+  </div>
           
-<label>
-Surname
-<input type="text" value={surname} name='surname' onChange={handleSurname}/>
-</label>
+<button type='submit'>Sign In</button>
 
-<button type='submit'>Submit</button>
 
-</form>
 
 {err && <p>{err}</p>}
 
-<Link to={"/auth/login"}>Login</Link>
+<Link to={"/auth/login"}>Already have an account? Login</Link>
 
- </div>
-  )
+</form>
+</div>
+</div>
+
+ )
 }
 
 export default SignUpPage

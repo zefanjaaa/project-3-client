@@ -3,7 +3,9 @@
    scale: 0.9
 }
 
-
+Link :hover{
+   color: #793077;
+}
 
 .BrandText{
    font-size: 1rem;

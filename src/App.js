@@ -19,7 +19,7 @@ import IsPrivate from "./components/IsPrivate";
 import ContactPage from "./pages/ContactPage";
 import ArtPage from "./pages/ArtPage";
 import HomegoodsPage from "./pages/HomegoodsPage";
-import TestSingleProdPage from "./pages/TestSingleProdPage";
+
 import SalePage from "./pages/SalePage";
 import SingleContact from "./components/SingleContact";
 

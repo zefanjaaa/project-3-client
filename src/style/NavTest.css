@@ -74,6 +74,7 @@ body {
   display: flex;
   justify-content: start;
   align-items: center;
+  
 }
 
 span {
@@ -81,16 +82,6 @@ span {
 }
 
 
-/* .IconBag{
-
-} 
-
-
-.IconPerson{
-  
+.BarsIcon{
+  margin-left: 10px;
 }
-
-.IconLogOut{
- 
-  
-}  */

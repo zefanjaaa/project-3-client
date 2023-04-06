@@ -37,13 +37,13 @@ function AllProductsPage() {
 
   <div className="allProductsPage">
       <Container>
-      <h1>ALL NEW ARRIVALS</h1>
+      <h1>NEW ARRIVALS</h1>
     
     <div className='allProducts' key={products._id}>
           
     <ui className="ProdGrid">
           {products.map((products) => <ProdCard3 key={products._id} {...products} products={products}/>)}
-          {/* {products.map((products) => <ProductCard key={products._id} {...products} products={products}/>)} */}
+          
 
     </ui>   
 

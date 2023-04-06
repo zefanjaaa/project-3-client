@@ -42,7 +42,7 @@ function ArtPage() {
 console.log(art)
   return (
     <div>
-      <h1>Art</h1>
+      <h1>ART</h1>
         {art.map(filter => (
           <div key={filter._id}>
             

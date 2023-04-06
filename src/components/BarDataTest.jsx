@@ -18,7 +18,7 @@ export const BarDataTest = [
    }, 
 
    {
-      title: "Products",
+      title: " All Products",
       path: "/product/products",
       icon: <IoIcons.IoIosAlbums/>,
       className: "nav-text"
@@ -31,7 +31,7 @@ export const BarDataTest = [
       className: "nav-text"
   }, 
   {
-    title: "Homegoods",
+    title: "Home Décor",
     path: "/product/homegoods",
     icon: <AiIcons.AiFillAppstore />,
     className: "nav-text"
@@ -43,7 +43,7 @@ export const BarDataTest = [
     className: "nav-text"
     },
     {
-      title: "CheckOut",
+      title: "Check Out",
       path: "/checkout",
       icon: <AiIcons.AiFillAppstore/>,
       className: "nav-text"
@@ -58,7 +58,7 @@ export const BarDataTest = [
   
   
   {
-    title: "Contact",
+    title: "Contact Us",
     path: '/contactpage',
     icon: <IoIcons.IoIosAlbums/>,
     className: "nav-text"

@@ -35,7 +35,7 @@ function SalePage() {
     
   return (
       <div>
-          <h1>Sale page</h1>
+          <h1>SALE</h1>
           {sale.map(filter => (
               <div key={filter._id}>
                   <img src={filter.image} alt='sale' style={{ maxHeight: "200px", maxWidth: "200px" }} />

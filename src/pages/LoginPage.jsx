@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth.context'
 import '../style/Login.css'
+import * as RiIcons from "react-icons/ri";
+import * as MdIcons from "react-icons/md";
 
 const API = "http://localhost:5005";
 
@@ -43,30 +45,39 @@ function handleSubmit(e){
 
 
   return (
-    
-    <div className="LoginForm">
-    <h3>Login</h3>
+  <div className='all'>
+  <div className="login">
+  
+  <h2>Login</h2>
+  <h3>Welcome Back</h3>
  
- <form action="" onSubmit={handleSubmit}>
+  <form  className='login-form' maction="" onSubmit={handleSubmit}>
+  <div className='textbox'>
+  <input type="email" value={email} onChange={handleEmail}/>
+  <span htmlFor="">
+   
+   <MdIcons.MdOutlineAlternateEmail></MdIcons.MdOutlineAlternateEmail>
+ 
+ </span>
+ </div>
 
- <label htmlFor="">
- email
- <input type="email" value={email} onChange={handleEmail}/>
- </label>
- 
- <label htmlFor="" >
- Password
+ <div className='textbox'>
  <input type="password" value={password} onChange={handlePassword}/>
- </label>
+  <span htmlFor="">
+
+  <RiIcons.RiLockPasswordLine></RiIcons.RiLockPasswordLine>
  
- <button type='submit'>Submit</button>
+ </span>
+ </div>
+ <button type='submit'>LOGIN</button>
  
- </form>
+ 
     
  {err && <p>{err}</p>}
 
- <Link to={"/auth/signup"}>Create an account</Link>
- 
+ <Link to={"/auth/signup"}>Don't have an account? Sign in</Link>
+ </form>
+ </div>
  </div>
   )
 }

@@ -14,9 +14,7 @@ function ProdCard3({ price, image, brand, nameOfProduct,_id }) {
 
    const API_URL = "http://localhost:3000"
   
-   const cart = useContext(CartContex);
-   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
- 
+   
 
 
 return (
@@ -36,24 +34,7 @@ return (
 
         </Card.Text>
 
-        {ProductQuantity > 0 ?
-         <div>
-
-            <Form as={Row}>
         
-              <Form.Label column="true" sm= "6">In Cart:{ProductQuantity}</Form.Label>
-              <Col sm="6">
-              <Button variant="dark" sm= "6" onClick={()=> cart.addOneToCart(nameOfProduct._id)} className="mx-2">+</Button>
-              <Button variant="dark" sm= "6" onClick={()=> cart.removeOneFromCart(nameOfProduct._id)} className="mx-2">-</Button>
-              
-              </Col>
-            </Form>
-             <Button variant="dark" onClick={()=> cart.deleteCart(nameOfProduct.id)} className="my-2">Remove from Cart</Button>
-         </div>
-
-         : //else
-         <BsIcons.BsBagFill variant="dark" onClick={()=>cart.addOneToCart(nameOfProduct._id)}>Add to Cart</BsIcons.BsBagFill>
-      }
 
         
       </Card.Body>

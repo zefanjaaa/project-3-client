@@ -37,7 +37,7 @@ filterProducts();
 
   return (
       <div>
-      <h1>Homegoods</h1>
+      <h1>HOME DÉCOR</h1>
       {home.map(filter => (
           <div key={filter._id}>
             
