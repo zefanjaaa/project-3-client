@@ -1,35 +1,44 @@
-
 .pic:hover {
-   scale: 0.9
+  scale: 0.9;
 }
 
-Link {
+.active {
+  color: #000000;
+  text-decoration: none;
+}
+
+.active:hover{
    color: #793077;
 }
 
-.BrandText{
-   font-size: 1rem;
+.ProdName {
+  font-size: 0.9rem;
 }
 
-.prodNameText{
-   font-size: 1rem;
+.prodBrandText {
+  font-size: 0.8rem;
 }
 
-.prodPriceText{
-   font-size: 0.9rem;
-   color: #793077;
+.prodPriceText {
+  font-size: 0.9rem;
+  color: rgb(136, 131, 131);
+  word-spacing: 9px;
 }
 
-/* .cardBody{
-   /* display: flex; */
-  /* justify-content: center; */
+.cardBody {
+  display: flex;
+  justify-content: center;
+  line-height: 0.7;
+  /* white-space: nowrap; */
+  text-align: center;
   
+}
 
 
 
 
 @media (max-width: 640px) {
-   .allProductsPage{
-     flex-direction: column;
-   }
+  .allProductsPage {
+    flex-direction: column;
   }
+}
