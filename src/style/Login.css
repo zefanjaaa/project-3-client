@@ -9,6 +9,8 @@
    border-radius: 22px;
    background: #161616;
    text-align: center;
+   margin-top: 115px;
+   
    
 }
 
@@ -95,12 +97,15 @@
 }
 
 .all{
+   
    display: grid;
-   place-items: center;
+   place-items: center center;
    margin: 0;
    padding: 0 24px;
    color: #f9f9f9;
    height: 100%;
+   /* align-items: center;
+   justify-content: center; */
 }
 
 @media (width >= 500px) {

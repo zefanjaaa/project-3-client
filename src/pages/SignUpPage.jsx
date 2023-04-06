@@ -47,7 +47,7 @@ function handleSubmit(e){
  return (
    
    <div className='all'>
-   <div className="login">
+   <div className="login2">
    
    <h2>Sign In</h2>
    <h3>Create an Account</h3>
