@@ -42,7 +42,7 @@ function AllProductsPage() {
     <div className='allProducts' key={products._id}>
           
     <ui className="ProdGrid">
-          {products.map((products) => <ProdCard3 key={products._id} {...products} products={products}/>)}
+          {products.map((products) => <ProdCard3 key={products._id} {...products} productId={products._id} products={products}/>)}
           
 
     </ui>   

@@ -1,21 +1,30 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import "../style/ProdCard3.css";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import "../style/ProdCard3.css"
 // import { color, motion } from "framer-motion";
-import React from "react";
+import React,{ useContext }  from 'react'
 import { CartContex } from "../context/cartContex";
-import { useContext } from "react";
+import AddtoWishlist from './AddtoWishlist';
 import { Col, Form, Row } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-function ProdCard3({ price, image, brand, nameOfProduct, _id }) {
-  const API_URL = "http://localhost:3000";
 
-  return (
-    <Card border="light" style={{ width: "15rem" }} key={nameOfProduct} className="CardAll">
-      <Card.Img className="pic" variant="top" src={image} alt="pic-product" />
+function ProdCard3({ price, image, brand, nameOfProduct,_id,productId,userId }) {
+  
+  const API_URL = "http://localhost:3000"
+  
+  
+   const cart = useContext(CartContex);
+   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
+ 
+
+
+return (
+<div>
+    <Card style={{ width: '15rem'}}  key={nameOfProduct}>
+      <Card.Img className='pic' whileHover={{ scale: 0.9 }} variant="top" src={image} alt="pic-product"/>
 
       <Card.Body className="cardBody">
         <Card.Text>
@@ -29,13 +38,16 @@ function ProdCard3({ price, image, brand, nameOfProduct, _id }) {
             <p className="prodBrandText">{brand}</p>
           </Card.Text>
 
-          <p className="prodPriceText">
-            ${price} <FaIcons.FaHeart></FaIcons.FaHeart>
-          </p>
+        <AddtoWishlist productId={productId} userId={userId} />
+       
         </Card.Text>
+
+        
+
+        
       </Card.Body>
     </Card>
-  );
+    </div>);
 }
 
 export default ProdCard3;

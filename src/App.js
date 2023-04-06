@@ -21,6 +21,7 @@ import HomegoodsPage from "./pages/HomegoodsPage";
 
 import SalePage from "./pages/SalePage";
 import SingleContact from "./components/SingleContact";
+import AddtoWishlist from "./components/AddtoWishlist";
 
 
 function App() {
@@ -53,7 +54,8 @@ function App() {
           <Route path="/product/art" element={<ArtPage />} />
           <Route path="/product/sale" element={<SalePage />}/>
           <Route path="/product/homegoods" element={<HomegoodsPage />} />
-          <Route path="/contact/:contactId" element={<SingleContact />}/>
+            <Route path="/contact/:contactId" element={<SingleContact />} />
+            <Route path="/auth/:userId/wishlist" element={<AddtoWishlist/>} />
       </Routes>
     </div>
     </CartProvider>
