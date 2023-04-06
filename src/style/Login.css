@@ -89,11 +89,15 @@
 
 }
 
-.login-form Link {
-   color: rgb(110, 50, 110);
+.login-form .NavLinK {
+   color: rgb(196, 46, 196);
    font-size: 16px;
    text-align: left;
    text-decoration: none;
+}
+
+.NavLinK:hover{
+   color: whitesmoke;
 }
 
 .all{

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth.context'
 import '../style/Login.css'
@@ -75,7 +75,7 @@ function handleSubmit(e){
     
  {err && <p>{err}</p>}
 
- <Link to={"/auth/signup"}>Don't have an account? Sign in</Link>
+ <NavLink className="NavLinK" to={"/auth/signup"}>Don't have an account? Sign in</NavLink>
  </form>
  </div>
  </div>
