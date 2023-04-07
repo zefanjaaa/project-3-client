@@ -46,9 +46,9 @@ function ProdCard3({
               <p className="prodBrandText">{brand}</p>
             </Card.Text>
             
-            <Card.Text>
+            <Card.Text className="prodPriceText">
             
-            <p className="prodBrandText">${price} <AddtoWishlist productId={productId} userId={userId} /></p>
+            <p className="prodPriceText">${price} <span></span> <AddtoWishlist productId={productId} userId={userId} /></p>
             
             </Card.Text>
 
