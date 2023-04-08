@@ -13,6 +13,8 @@ import Cart from "./Cart";
 
 function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
   const { isLoggedIn, logOutUser, administrator } = useContext(AuthContext);
+  const { items, getTotalCost, getTotalItems, deleteWholeCart, deleteCart } =
+    useContext(CartContex);
 
   const [sideB, setSideB] = useState(false);
 
@@ -26,8 +28,10 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
   // const cart = useContext(CartContex);
 
   // const prodCount = cart.items.reduce((sum, prod)=> sum + prod.quantity, 0); all broke here
+  const totalItemsInCart = getTotalItems();
+  const totalPrice = getTotalCost();
 
-  return (
+  return ( 
     <div className="navAll">
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
@@ -46,7 +50,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
           )}
 
           {isLoggedIn && (
-            <div>
+            <div className="AllNavIcons">
               <AiIcons.AiOutlineLogout
                 onClick={logOutUser}
                 className="IconLogOut"
@@ -58,7 +62,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
 
               {/*<Link to="/product/add">
             <button>add</button>
-      </Link>*/}
+            </Link>*/}
 
               <BsIcons.BsBagFill className="IconBag" onClick={handleShowModal}>
                 {" "}
@@ -91,7 +95,34 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
         </Modal.Header>
 
         <Modal.Body>
-          <h2> Shopping Cart </h2>
+          <h3>
+            {" "}
+            You have: {totalItemsInCart} items 
+          </h3>
+        </Modal.Body>
+
+        <Modal.Body>
+        <Button variant="dark" onClick={deleteWholeCart}> Delete Cart</Button>
+        </Modal.Body>
+        <Modal.Body>
+          {items?.map((product) => (
+            <div>
+            
+              <p className="p-test">{product.nameOfProduct}<span></span>{product.quantity}X</p>
+             
+              <p className="p-test">${product.price}</p>
+              <hr></hr>
+            </div>
+          ))}
+
+         
+          <Modal.Title> Total price: ${totalPrice}{" "}</Modal.Title>
+        
+        <br></br>
+        <Link to="/checkout">
+        <Button variant="dark"> Checkout</Button>
+      </Link>
+
         </Modal.Body>
       </Modal>
     </div>

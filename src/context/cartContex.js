@@ -1,16 +1,14 @@
 import { createContext, useState } from "react";
 
-export const CartContex = createContext({
-  items: [],
-  getProductQuantity: () => {},
-  addOneToCart: () => {},
-  removeOneFromCart: () => {},
-  deleteCart: () => {},
-//   getTotalCost: () => {},
-});
+export const CartContex = createContext();
 
 export function CartProvider({ children }) {
   const [cartProds, setCartProds] = useState([]);
+  console.log(cartProds)
+
+  // const getCart = () => {
+  //   axios.get(/*to cart */).then(response => setCartProds(response.data))
+  // }
 
   function getProductQuantity(_id) {
     const quantity = cartProds.find((prod) => prod._id === _id)?.quantity;
@@ -22,20 +20,20 @@ export function CartProvider({ children }) {
     return quantity;
   }
 
-  function addOneToCart(_id) {
-    const quantity = getProductQuantity(_id);
+  function addOneToCart(product) {
+    const quantity = getProductQuantity(product._id);
 
     if (quantity === 0) {
       //product is not in cart
 
-      setCartProds([...cartProds, { _id: _id, quantity: 1 }]);
+      setCartProds([...cartProds, { ...product, quantity: 1 }]);
     } else {
       //prod is in cart
 
       setCartProds(
         cartProds.map(
           (prod) =>
-            prod._id === _id //if contition
+            prod._id === product._id //if contition
               ? { ...prod, quantity: prod.quantity + 1 } //if statement is true
               : prod //if it false, ternary statement :
         )
@@ -43,16 +41,16 @@ export function CartProvider({ children }) {
     }
   }
 
-  function removeOneFromCart(_id) {
-    const quantity = getProductQuantity(_id);
+  function removeOneFromCart(product) {
+    const quantity = getProductQuantity(product._id);
 
-    if (quantity == 1) {
-      deleteCart(_id);
+    if (quantity === 1) {
+      deleteCart(product);
     } else {
       setCartProds(
         cartProds.map(
           (prod) =>
-            prod._id === _id 
+            prod._id === product._id 
               ? { ...prod, quantity: prod.quantity - 1 } 
               : prod 
         )
@@ -60,34 +58,32 @@ export function CartProvider({ children }) {
     }
   }
 
-
-
-  function deleteCart(_id) {
+  function deleteCart(product) {
     setCartProds((cartProds) =>
       cartProds.filter((currentProd) => {
-        return currentProd._id != _id;
+        return currentProd._id !== product._id;
       })
     );
   }
 
-//  function getTotalCost(){
-//    let totalCost = 0
-//    allprodsIDKwheretheyare.map((cartItem) =>{
-//       const Dataofaproduct = getProdData(cartItem._id);
-//       totalCost += (Dataofaproduct.price * cartItem.quantity);
-//    });
-//    return totalCost
-//  }
+  function deleteWholeCart(){
+    setCartProds([])
+  }
 
+  const getTotalCost = () => cartProds.reduce((acc, cV) => acc + (cV.quantity * cV.price), 0)
+
+  const getTotalItems = () => cartProds.reduce((acc, cV) => acc + cV.quantity, 0)
 
   const contexValue = {
-    items: [],
+    items: cartProds,
     getProductQuantity,
     addOneToCart,
     removeOneFromCart,
     deleteCart,
-   //  getTotalCost, 
-    
+    getTotalCost,
+    getTotalItems ,
+    deleteWholeCart
+   
     //so we can define all these functions
   };
 
