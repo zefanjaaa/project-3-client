@@ -13,7 +13,7 @@ import Cart from "./Cart";
 
 function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
   const { isLoggedIn, logOutUser, administrator } = useContext(AuthContext);
-  const { items, getTotalCost, getTotalItems, deleteWholeCart } =
+  const { items, getTotalCost, getTotalItems, deleteWholeCart, deleteCart } =
     useContext(CartContex);
 
   const [sideB, setSideB] = useState(false);
@@ -50,7 +50,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
           )}
 
           {isLoggedIn && (
-            <div>
+            <div className="AllNavIcons">
               <AiIcons.AiOutlineLogout
                 onClick={logOutUser}
                 className="IconLogOut"
@@ -97,20 +97,31 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
         <Modal.Body>
           <h3>
             {" "}
-            You have: {totalItemsInCart} items {totalPrice} price{" "}
+            You have: {totalItemsInCart} items 
           </h3>
         </Modal.Body>
 
         <Modal.Body>
-          <button onClick={deleteWholeCart}> Delete Everything</button>
+        <Button variant="dark" onClick={deleteWholeCart}> Delete Cart</Button>
         </Modal.Body>
         <Modal.Body>
           {items?.map((product) => (
             <div>
-              <p className="p-test">{product.nameOfProduct}</p>
-              <p>{product.price}</p>
+            
+              <p className="p-test">{product.nameOfProduct}<span></span>{product.quantity}X</p>
+             
+              <p className="p-test">${product.price}</p>
+              <hr></hr>
             </div>
           ))}
+
+         
+          <Modal.Title> Total price: ${totalPrice}{" "}</Modal.Title>
+        
+        <br></br>
+        <Link to="/checkout">
+        <Button variant="dark"> Checkout</Button>
+      </Link>
 
         </Modal.Body>
       </Modal>
