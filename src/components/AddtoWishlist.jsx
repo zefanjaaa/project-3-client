@@ -9,12 +9,12 @@ function AddtoWishlist({productId}) {
     
 const {user} = useContext(AuthContext)
 
-    const API = "http://localhost:5005";
+    const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
     const handleAddToWishList = () => {
         
         setAdd(true)
-        axios.post(`${API}/product/product/${user._id}/wishlist`, { productId:productId })
+        axios.post(`${API_URL}/product/product/${user._id}/wishlist`, { productId:productId })
             .then(response => {
           alert("The product is added to your wishlist!")
                 setAdd(false)

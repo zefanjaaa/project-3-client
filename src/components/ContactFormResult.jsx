@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import {Link }from 'react-router-dom'
 import axios from 'axios'
 
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
-const API_URL = "http://localhost:3000"
+
+const API = "http://localhost:3000"
 
 
 function ContactFormResult() {
@@ -14,7 +15,7 @@ function ContactFormResult() {
     const getAllContacts = () => {
         const storedToken = localStorage.getItem("authToken")
 
-        axios.get(`${API}/contact/contacts`, {
+        axios.get(`${API_URL}/contact/contacts`, {
             headers:{Authorization:`Bearer ${storedToken}`},
         })
 
@@ -35,7 +36,7 @@ function ContactFormResult() {
               <h1>Contact form result</h1>
               {contact.map((contact) => (
                   <div>
-                      <Link to={`${API_URL}/contact/${contact._id}`}>
+                      <Link to={`${API}/contact/${contact._id}`}>
                           <p><b>Title:</b> {contact.title}</p>
                           </Link>
                       <p><b>Name:</b>{contact.name} </p>

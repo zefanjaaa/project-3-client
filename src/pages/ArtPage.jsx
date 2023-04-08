@@ -4,7 +4,7 @@ import ProdCard3 from '../components/ProdCard3';
 import { Container } from 'react-bootstrap';
 import "../style/ArtPage.css"
 
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function ArtPage() {
   const [products, setProducts] = useState([]);
@@ -16,7 +16,7 @@ function ArtPage() {
       const storedToken = localStorage.getItem("authToken");
   
       axios
-        .get(`${API}/product/products`, {
+        .get(`${API_URL}/product/products`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
   

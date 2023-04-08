@@ -48,14 +48,14 @@ import { AuthContext } from "../context/auth.context";
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
   const { user } = useContext(AuthContext);
-  const API = "http://localhost:5005";
+  const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
   useEffect(() => {
     axios
-      .get(`${API}/product/product/${user._id}/wishlist`)
+      .get(`${API_URL}/product/product/${user._id}/wishlist`)
       .then((response) => {
         const wishlistItems = response.data.wishlist.map((itemId) => {
-          return axios.get(`${API}/product/products/${itemId}`);
+          return axios.get(`${API_URL}/product/products/${itemId}`);
         });
         return Promise.all(wishlistItems);
       })

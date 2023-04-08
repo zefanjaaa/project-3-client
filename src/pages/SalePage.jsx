@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import ProdCard3 from '../components/ProdCard3';
 
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function SalePage() {
     const [sale, setSale] = useState([]);
@@ -12,7 +12,7 @@ function SalePage() {
         const storedToken = localStorage.getItem("authToken");
     
         axios
-          .get(`${API}/product/products`, {
+          .get(`${API_URL}/product/products`, {
             headers: { Authorization: `Bearer ${storedToken}` },
           })
     

@@ -7,7 +7,7 @@ import "../style/Login.css";
 import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
 
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function LoginPage() {
   const [err, setErr] = useState(undefined);
@@ -25,7 +25,7 @@ function LoginPage() {
     e.preventDefault();
     const body = { email, password };
     axios
-      .post(`${API}/auth/login`, body)
+      .post(`${API_URL}/auth/login`, body)
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();

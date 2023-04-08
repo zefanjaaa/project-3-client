@@ -7,7 +7,7 @@ import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
 import { Container, Row } from "react-bootstrap";
 
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function SignUpPage() {
   const [err, setErr] = useState(undefined); // undefined bc we dont save anything
@@ -28,7 +28,7 @@ function SignUpPage() {
     e.preventDefault();
     const body = { email, password, surname, name };
     axios
-      .post(`${API}/auth/signup`, body)
+      .post(`${API_URL}/auth/signup`, body)
       .then(() => {
         navigate("/auth/login");
         //    setEmail('')
