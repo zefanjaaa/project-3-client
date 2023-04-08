@@ -18,7 +18,7 @@ function SalePage() {
     
           .then((response) => {
             setProducts(response.data)
-         
+            
           })
           .catch((error) => console.log("THERE IS AN ERROR ==>", error));
       };

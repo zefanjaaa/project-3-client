@@ -12,6 +12,7 @@ function Admin({ children }) {
   
   } else {
     return <Navigate to="/" />;
+   
   }
 }
 

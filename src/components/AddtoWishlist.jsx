@@ -16,7 +16,7 @@ const {user} = useContext(AuthContext)
         setAdd(true)
         axios.post(`${API}/product/product/${user._id}/wishlist`, { productId:productId })
             .then(response => {
-          
+          alert("The product is added to your wishlist!")
                 setAdd(false)
             })
             .catch((error) => {

@@ -1,14 +1,13 @@
 // import path from 'path';
-import React from 'react'
-
-
+import React, {useContext} from 'react'
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
+import { AuthContext } from '../context/auth.context';
 
 
 
 
-export const BarDataTest = [
+const BarDataTest = [
 
    {
      title: "Home",
@@ -70,9 +69,7 @@ export const BarDataTest = [
       icon: <IoIcons.IoIosAlbums/>,
       className: "nav-text"
       },
-
-
-      
-    
-
 ]
+
+export default BarDataTest
+
