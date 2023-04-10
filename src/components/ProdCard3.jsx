@@ -19,8 +19,8 @@ function ProdCard3({
   productId,
   userId,
 }) {
-  // const API = "http://localhost:3000";
-  const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
+  const API = process.env.API || "http://localhost:3000";
+
 
   const cart = useContext(CartContex);
   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
@@ -39,8 +39,8 @@ function ProdCard3({
         <Card.Body className="cardBody">
           <Card.Text>
             <Card.Text className="ProdName">
-              {/* <NavLink className="active" to={`${API}/product/${_id}`}> */}
-              <NavLink className="active" to={`${API_URL}/product/${_id}`}>
+              <NavLink className="active" to={`${API}/product/${_id}`}>
+        
                 
                 <p>{nameOfProduct}</p>
               </NavLink>
