@@ -1,4 +1,4 @@
-import React, {  useEffect,useState } from 'react'
+import React, { useState } from 'react'
 import ContactFormCard from '../components/ContactFormCard'
 
 const ContactContext = React.createContext()

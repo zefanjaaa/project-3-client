@@ -12,7 +12,7 @@ import { CartContex } from "../context/cartContex";
 import Cart from "./Cart";
 
 function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
-  const { isLoggedIn, logOutUser, administrator } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
   const { items, getTotalCost, getTotalItems, deleteWholeCart, deleteCart } =
     useContext(CartContex);
 
