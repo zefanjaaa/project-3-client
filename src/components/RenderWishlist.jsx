@@ -35,7 +35,7 @@ function RenderWishlist() {
            <h2>{item.nameOfProduct}</h2>
               <p>{item.price}</p>
           <img src={item.image} alt="wishlistpic" />
-          <RemoveFromWishlist  productId={item._id}/>
+          <RemoveFromWishlist  productId={item._id} />
         </div>
       ))}
     </div>
