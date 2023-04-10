@@ -39,9 +39,9 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
 
           {!isLoggedIn && (
             <div>
-              <Link to="/auth/signup">
-                <Button variant="dark"> Create an account</Button>
-              </Link>
+               {/*<Link to="/auth/signup">
+                 <Button variant="dark"> Create an account</Button>
+          </Link> */ }
 
               <Link to="/auth/login">
                 <Button variant="dark">Login</Button>
