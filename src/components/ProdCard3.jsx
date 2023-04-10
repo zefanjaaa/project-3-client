@@ -19,7 +19,7 @@ function ProdCard3({
   productId,
   userId,
 }) {
-  const API = process.env.API || "http://localhost:3000";
+  const API = process.env.API2 || "http://localhost:3000";
 
 
   const cart = useContext(CartContex);
