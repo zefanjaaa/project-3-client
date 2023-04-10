@@ -28,9 +28,7 @@ function AuthProviderWrapper(props) {
                 .then((response) => {
                     const user = response.data
                     const adminCheck = response.data.isAdmin
-                    // console.log('THIS IS THE RESPONSE.DATA/USER', response.data.isAdmin)
-                    console.log('SECOND CONSOLE.LOG', user)
-                    console.log('ADMINCHECK',adminCheck)
+              
                     setIsLoggedIn(true)
                     setIsLoading(false)
                     setUser(user)
