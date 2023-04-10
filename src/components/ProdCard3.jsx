@@ -39,7 +39,7 @@ function ProdCard3({
         <Card.Body className="cardBody">
           <Card.Text>
             <Card.Text className="ProdName">
-              <NavLink className="active" to={`${API}/product/${_id}`}>
+              <NavLink className="active" to={`/product/${_id}`}>
         
                 
                 <p>{nameOfProduct}</p>
