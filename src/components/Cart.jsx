@@ -16,12 +16,12 @@ function Cart({ price, image, brand, nameOfProduct, _id, productId }) {
   const {user} = useContext(AuthContext)
 
  
-    const API = "http://localhost:5005";
+  const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
     const handleAddToCart = () => {
         
         setAddToCart(true)
-        axios.post(`${API}/product/product/${user._id}/cart`, { productId:productId })
+        axios.post(`${API_URL}/product/product/${user._id}/cart`, { productId:productId })
             .then(response => {
                 console.log('product added to cart', response.data)
                 setAddToCart(false)

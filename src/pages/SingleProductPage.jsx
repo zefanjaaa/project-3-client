@@ -9,7 +9,7 @@ import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
 import AddtoWishlist from "../components/AddtoWishlist";
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function SingleProductPage() {
   const [product, setProduct] = useState(null);

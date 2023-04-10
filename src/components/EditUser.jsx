@@ -4,8 +4,7 @@ import axios from 'axios'
 import { AuthContext } from '../context/auth.context';
 
 
-
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 // const storeToken = localStorage.getItem('authToken');
 
@@ -35,7 +34,7 @@ function EditUser(props) {
      
         const findToken = localStorage.getItem('authToken')
         
-        axios.get(`${API}/auth/verify`, { headers: { Authorization: `Bearer ${findToken}` } }
+        axios.get(`${API_URL}/auth/verify`, { headers: { Authorization: `Bearer ${findToken}` } }
         )
 
             .then((response) => {
@@ -55,7 +54,7 @@ function EditUser(props) {
         const storeToken = localStorage.getItem('authToken');
         
         axios.put(
-            `${API}/auth/${props.user._id}`,body, {headers: {Authorization:`Bearer ${storeToken}`}}
+            `${API_URL}/auth/${props.user._id}`,body, {headers: {Authorization:`Bearer ${storeToken}`}}
         )
             .then((response) => {
             console.log('RESPONSE ==>',response)
@@ -71,7 +70,7 @@ function EditUser(props) {
         const storeToken = localStorage.getItem('authToken')
 
         axios
-        .delete(`${API}/auth/${props.user._id}`, { headers: { Authorization: `Bearer ${storeToken}` } })
+        .delete(`${API_URL}/auth/${props.user._id}`, { headers: { Authorization: `Bearer ${storeToken}` } })
         .then(() => {
         
         // localStorage.removeItem('authToken')

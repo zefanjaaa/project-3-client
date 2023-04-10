@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function ProductCard({ price, image, brand, nameOfProduct,_id }) {
 
   
-  const API_URL = "http://localhost:3000"
+  const API = "http://localhost:3000"
   
   const cart = useContext(CartContex);
   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
@@ -28,7 +28,7 @@ function ProductCard({ price, image, brand, nameOfProduct,_id }) {
         />
 
       <div className="prodCardContent">
-        <Link to={`${API_URL}/product/${_id}`}>
+        <Link to={`${API}/product/${_id}`}>
           <h1 className="prodName">{nameOfProduct}</h1>
           </Link>
         <h3 className="prodPrice">{brand}</h3>

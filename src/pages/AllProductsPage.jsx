@@ -8,7 +8,7 @@ import "../style/AllProdPage.css"
 import { Container } from 'react-bootstrap';
 
 
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function AllProductsPage() {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ function AllProductsPage() {
     const storedToken = localStorage.getItem("authToken");
 
     axios
-      .get(`${API}/product/products`, {
+      .get(`${API_URL}/product/products`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const API = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 
 
@@ -27,7 +27,7 @@ function ContactFormCard() {
 
     const body = { name, email, text,title }
     
-    axios.post(`${API}/contact/contact`, body)
+    axios.post(`${API_URL}/contact/contact`, body)
       .then(() => {
         setName('')
         setEmail('')

@@ -4,7 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
-import { BarDataTest } from "./BarDataTest";
+import BarDataTest  from "./BarDataTest";
 import "../style/NavTest.css";
 import { IconContext } from "react-icons";
 import { Button, Modal } from "react-bootstrap";
