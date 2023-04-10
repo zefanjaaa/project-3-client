@@ -46,6 +46,32 @@ body {
   height: 60px;
 }
 
+.nav-textYOU{
+  display: flex;
+  justify-self: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-textYOU a {
+  text-decoration: none;
+  color: rgb(174, 9, 245);
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-textYOU a:hover{
+  background-color: rgb(41, 40, 40);
+  color: whitesmoke;
+}
+
 .nav-text a {
   text-decoration: none;
   color: whitesmoke;
@@ -92,4 +118,11 @@ span {
 
 .AllNavIcons{
   margin-right: 10px;
+}
+
+.YouLogo{
+  color: rgb(157, 22, 215);
+  /* font-weight: 600; */
+  margin-right: 1160px;
+  font-size: 240%;
 }

@@ -49,10 +49,10 @@ const BarDataTest = [
     }, 
 
     {
-      title: "Wishlist",
+      title: "YOU.",
       path: "/wishlist",
       icon: <AiIcons.AiFillAppstore/>,
-      className: "nav-text"
+      className: "nav-textYOU"
     }, 
   
   

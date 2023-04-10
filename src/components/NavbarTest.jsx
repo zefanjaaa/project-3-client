@@ -37,6 +37,8 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
         <div className="navbar">
           <FaIcons.FaBars onClick={showSidebar} className="BarsIcon" />
 
+          <h1 className="YouLogo">YOU.</h1>
+
           {!isLoggedIn && (
             <div>
                {/*<Link to="/auth/signup">
@@ -76,6 +78,9 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
             <li className="navbar-toggle">
               <AiIcons.AiOutlineClose className />
             </li>
+            
+             
+             
             {BarDataTest.map((item, index) => {
               return (
                 <li key={index} className={item.className}>
@@ -86,6 +91,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
               );
             })}
           </ul>
+          
         </nav>
       </IconContext.Provider>
 
