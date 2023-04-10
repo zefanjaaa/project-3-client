@@ -3,13 +3,13 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import RemoveFromWishlist from "./RemoveFromWishlist";
 
-
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
   const { user } = useContext(AuthContext);
   const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
-  useEffect(() => {
+
+  const getWishlist = () => {
     axios
       .get(`${API_URL}/product/product/${user._id}/wishlist`)
       .then((response) => {
@@ -25,7 +25,10 @@ function RenderWishlist() {
       .catch((error) => {
         console.log("there is an error rendering the wishlist", error);
       });
-  }, [user._id,API_URL]);
+  }
+  useEffect(() => {
+    getWishlist()
+  }, [user._id]);
 
   return (
     <div>
@@ -35,9 +38,10 @@ function RenderWishlist() {
            <h2>{item.nameOfProduct}</h2>
               <p>{item.price}</p>
           <img src={item.image} alt="wishlistpic" />
-          <RemoveFromWishlist  productId={item._id} />
+          <RemoveFromWishlist productId={item._id} getWishlist={getWishlist} />
         </div>
       ))}
+  
     </div>
   );
 }
