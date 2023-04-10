@@ -5,7 +5,7 @@ import axios from "axios";
 import "../style/SignUp.css";
 import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
-import { Container, Row } from "react-bootstrap";
+
 
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 

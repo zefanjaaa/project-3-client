@@ -39,8 +39,8 @@ function ContactFormCard() {
 
       })
       .catch((err) => {
-        const message = err.response.data.message
-        setError(message)
+        const error = err.response.data.message
+        setError(error)
     })
 
   }
@@ -65,7 +65,7 @@ function ContactFormCard() {
           <b>Text</b>
           <textarea rows={'4'} cols={'50'} value={text} name='text' onChange={handleText} type="text" />
 
-          {/* <input type="text" value={text} name="text" onChange={handleText} /> */}
+        
         </label>
         <button type='submit'> Submit </button>
       </form>
