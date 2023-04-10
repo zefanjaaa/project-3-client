@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import RemoveFromWishlist from "./RemoveFromWishlist";
+
 
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -32,7 +34,8 @@ function RenderWishlist() {
         <div key={item._id}>
            <h2>{item.nameOfProduct}</h2>
               <p>{item.price}</p>
-              <img src={item.image} alt="wishlistpic" />
+          <img src={item.image} alt="wishlistpic" />
+          <RemoveFromWishlist  productId={item._id}/>
         </div>
       ))}
     </div>
