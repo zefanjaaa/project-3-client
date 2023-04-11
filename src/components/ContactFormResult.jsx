@@ -34,7 +34,7 @@ function ContactFormResult({contactId}) {
     const removeContact = () => {
         const token = localStorage.getItem('authToken')
         
-        axios.delete(`${API_URL}/contact/contacts/${contactId}`, { headers: { Authorization: `Bearer ${token}` } })
+        axios.delete(`${API_URL}/contact/contacts/${contact._Id}`, { headers: { Authorization: `Bearer ${token}` } })
        
             .then(() => {
                 alert('Contact removed')
