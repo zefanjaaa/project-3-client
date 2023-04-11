@@ -59,7 +59,7 @@ function ContactFormResult({contactId}) {
                           <p><b>Title:</b> {contact.title}</p>
                           </Link>
                       <p><b>Name:</b>{contact.name} </p>
-                      <button onClick={() => { removeContact(contactId)}}>remove the contact</button>
+                      <button onClick={() => { removeContact(contact._Id)}}>remove the contact</button>
                       </div>
               ))}
               </div>
