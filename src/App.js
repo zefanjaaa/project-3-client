@@ -18,7 +18,7 @@ import IsPrivate from "./components/IsPrivate";
 import ContactPage from "./pages/ContactPage";
 import ArtPage from "./pages/ArtPage";
 import HomegoodsPage from "./pages/HomegoodsPage";
-
+import Footer from "./components/Footer";
 import SalePage from "./pages/SalePage";
 import SingleContact from "./components/SingleContact";
 import AddtoWishlist from "./components/AddtoWishlist";
@@ -33,15 +33,9 @@ function App() {
     <CartProvider>
     <div className="App">
 
-      
-      
       <NavbarTest/>
-      
-    
+   
       <Routes>
-
-     
-
         <Route path="/" element={<HomePage />} />
         <Route path="/product/products" element={<AllProductsPage />} />
         <Route path="/auth/signup" element={<SignUpPage />} />
@@ -56,7 +50,8 @@ function App() {
           <Route path="/product/homegoods" element={<HomegoodsPage />} />
             <Route path="/contact/:contactId" element={<SingleContact />} />
             <Route path="/auth/:userId/wishlist" element={<AddtoWishlist/>} />
-      </Routes>
+          </Routes>
+          <Footer />
     </div>
     </CartProvider>
     </ThemeProvider>
