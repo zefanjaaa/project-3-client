@@ -11,7 +11,7 @@ const API = process.env.API2 || "http://localhost:3000"
 function ContactFormResult({contactId}) {
 
     const [contact, setContact] = useState([])
-    // const {contactId} = useParams()
+    // const { contactId } = useParams()
 
 
     const getAllContacts = () => {
@@ -28,13 +28,13 @@ function ContactFormResult({contactId}) {
             })
         .catch((error) => console.log("THERE IS AN ERROR GETTING THE CONTACT",error))
     }
-    console.log('contact', contact)
+    console.log('contact', contactId)
 
 
     const removeContact = () => {
         const token = localStorage.getItem('authToken')
         
-        axios.delete(`${API_URL}/contact/contacts/${contact._Id}`, { headers: { Authorization: `Bearer ${token}` } })
+        axios.delete(`${API_URL}/contact/contacts/${contactId}`, { headers: { Authorization: `Bearer ${token}` } })
        
             .then(() => {
                 alert('Contact removed')
@@ -55,11 +55,11 @@ function ContactFormResult({contactId}) {
               <h1>Contact form result</h1>
               {contact.map((contact) => (
                   <div key={contact._id}>
-                      <Link to={`${API}/contact/${contact._id}`}>
+                      <Link to={`/contact/${contact._id}`}>
                           <p><b>Title:</b> {contact.title}</p>
                           </Link>
                       <p><b>Name:</b>{contact.name} </p>
-                      <button onClick={() => { removeContact(contact._Id)}}>remove the contact</button>
+                      <button onClick={removeContact}>remove the contact</button>
                       </div>
               ))}
               </div>

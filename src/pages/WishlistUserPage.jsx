@@ -24,6 +24,7 @@ function WishlistUserPage() {
   const handleWishlist = () => {
     setWishlist(!wishlist)
   }
+  
   return (
     <div>
       <h1>User environment</h1>

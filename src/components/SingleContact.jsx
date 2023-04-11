@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams,useNavigate } from 'react-router-dom'
 
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function SingleContact() {
     const [contact, setContact] = useState(null)
     const { contactId } = useParams()
-    
+    const navigate = useNavigate()
+
+
     const getContact = () => {
         const token = localStorage.getItem('authToken')
         axios.get(
@@ -20,7 +22,21 @@ function SingleContact() {
             })
         .catch((error) => {console.log('THERE IS AN ERROR GETTING AND SETTING CONTACT',error)})
     }
-
+    console.log('test single', contactId)
+    
+    const removeContact = () => {
+        const token = localStorage.getItem('authToken')
+        
+        axios.delete(`${API_URL}/contact/contacts/${contactId}`, { headers: { Authorization: `Bearer ${token}` } })
+       
+            .then(() => {
+                alert('Contact removed')
+               navigate('/wishlist')
+            })
+            .catch((error) => {
+            console.log('there is an error deleting a contact!', error)
+        })
+    }
     useEffect(() => {
         getContact()
     },[])
@@ -35,7 +51,7 @@ function SingleContact() {
                   <br />
                   <br />
                   <p><b>Text:</b>{contact.text}</p>
-
+<button onClick={removeContact}>remove</button>
                   <p></p>
               </div>
           )}

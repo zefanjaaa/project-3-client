@@ -35,6 +35,7 @@ function ContactFormCard() {
         setTitle('')
       })
       .then(() => {
+        alert('Thank you for your feedback! We will get in touch with you as soon as possible!')
       navigate('/wishlist')
 
       })
