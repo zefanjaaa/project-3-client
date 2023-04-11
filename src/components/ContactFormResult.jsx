@@ -8,10 +8,10 @@ const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 const API = process.env.API2 || "http://localhost:3000"
 
 
-function ContactFormResult({contactId}) {
+function ContactFormResult() {
 
     const [contact, setContact] = useState([])
-    // const {contactId} = useParams()
+    const {contactId} = useParams()
 
 
     const getAllContacts = () => {
@@ -59,7 +59,7 @@ function ContactFormResult({contactId}) {
                           <p><b>Title:</b> {contact.title}</p>
                           </Link>
                       <p><b>Name:</b>{contact.name} </p>
-                      <button onClick={removeContact}>remove the contact</button>
+                      <button onClick={() => { removeContact(contactId)}}>remove the contact</button>
                       </div>
               ))}
               </div>
