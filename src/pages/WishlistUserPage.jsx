@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom";
 
 function WishlistUserPage() {
   const { user, administrator } = useContext(AuthContext);
-const {contactId} = useParams()
+  const { contactId } = useParams()
+  
   const [edit, setEdit] = useState(false);
   const [contact, setContact] = useState(false);
   const [wishlist,setWishlist] = useState(false)
