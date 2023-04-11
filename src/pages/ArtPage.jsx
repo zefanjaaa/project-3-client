@@ -10,8 +10,6 @@ function ArtPage() {
   const [products, setProducts] = useState([]);
   const [art,setArt] = useState([])
 
-  
-  
     const getAllProducts = () => {
       const storedToken = localStorage.getItem("authToken");
   
@@ -40,9 +38,6 @@ function ArtPage() {
 }, [products]);
 
   
- 
-
-console.log(art)
   return (
     <div className="allProductsPage">
       <Container>
@@ -52,8 +47,6 @@ console.log(art)
       <ui className="ProdGrid">
             {art.map((products) => (<ProdCard3 key={products._id} {...products} productId={products._id} products={products} />))}
             
-          {/* {products.map((products) => <ProdCard3 key={products._id} {...products} productId={products._id} products={products}/>)} */}
-
       </ui>   
 
       </div>

@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../style/SingleProdPage.css";
 import { CartContex } from "../context/cartContex";
-import { useContext } from "react";
 import { Col, Form, Row, Button } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
 import AddtoWishlist from "../components/AddtoWishlist";
 
+
+
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
-function SingleProductPage() {
+function SingleProductPage({userId}) {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
 
-  console.log(product);
+  
   const cart = useContext(CartContex);
+
   const ProductQuantity = cart.getProductQuantity(product?._id);
 
   const getProduct = () => {
@@ -100,8 +102,7 @@ function SingleProductPage() {
               </BsIcons.BsBagFill>
             )}
             <br></br>
-
-            <FaIcons.FaHeart><AddtoWishlist /></FaIcons.FaHeart>
+<AddtoWishlist  productId={productId} userId={userId} />
           </div>
         </div>
       )}

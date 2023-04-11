@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
-
-
 function ContactFormCard() {
   
   const [name, setName] = useState('')

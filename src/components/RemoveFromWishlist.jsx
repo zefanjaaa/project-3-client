@@ -9,8 +9,6 @@ function RemoveFromWishlist({productId,getWishlist}) {
  
   const { user } = useContext(AuthContext);
 
-
-
     const remove = () => {
         const token = localStorage.getItem('authToken')
         

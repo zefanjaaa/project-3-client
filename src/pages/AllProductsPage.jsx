@@ -1,8 +1,6 @@
-import React from 'react'
-
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect,useContext } from 'react'
 import axios from "axios"
-
+import { AuthContext } from '../context/auth.context';
 import ProdCard3 from '../components/ProdCard3';
 import "../style/AllProdPage.css"
 import { Container } from 'react-bootstrap';
@@ -12,7 +10,8 @@ const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function AllProductsPage() {
   const [products, setProducts] = useState([]);
-
+  const { user } = useContext(AuthContext)
+  
   const getAllProducts = () => {
     const storedToken = localStorage.getItem("authToken");
 
@@ -42,7 +41,7 @@ function AllProductsPage() {
     <div className='allProducts' key={products._id}>
           
     <ui className="ProdGrid">
-          {products.map((products) => <ProdCard3 key={products._id} {...products} productId={products._id} products={products}/>)}
+          {products.map((products) => <ProdCard3 key={products._id} userId={user._id}{...products} productId={products._id} products={products}/>)}
           
 
     </ui>   

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React,{ useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import axios from "axios";
 import "../style/SignUp.css";
@@ -31,10 +30,6 @@ function SignUpPage() {
       .post(`${API_URL}/auth/signup`, body)
       .then(() => {
         navigate("/auth/login");
-        //    setEmail('')
-        //    setName('')
-        //    setSurname('')
-        //    setPassword('')
       })
       .catch((error) => {
         const description = error.response.data.message;
@@ -74,23 +69,25 @@ function SignUpPage() {
           </div>
 
           <div className="textbox">
+          <span htmlFor="">name</span>
             <input
               type="text"
               value={name}
               name="password"
               onChange={handleName}
             />
-            <span htmlFor="">name</span>
+            
           </div>
 
           <div className="textbox">
+          <span htmlFor="">surname</span>
             <input
               type="text"
               value={surname}
               name="surname"
               onChange={handleSurname}
             />
-            <span htmlFor="">surname</span>
+            
           </div>
 
           <button type="submit">Sign In</button>

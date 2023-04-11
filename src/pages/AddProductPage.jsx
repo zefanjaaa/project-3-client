@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
  
 import service from "../api/service";
 
-// const API_URL = "http://localhost:5005";
+
  
 function AddProductPage(props) {
   const [nameOfProduct, setNameOfProduct] = useState("");
@@ -41,22 +41,7 @@ console.log('The file being uploaded is ===>', e.target.files[0])
 function handleSubmit(e){
     e.preventDefault()
 
-    // const bodyToPost = {nameOfProduct,brand,categoryOfProduct,image,price,size,quantity, RelatedProducts, ProductDetails} //like destructuring but upsidedown as we puting stuff into object
     
-    // axios.post(`${API_URL}/product/products`, bodyToPost)
-    // .then (()=>{
-    //   setNameOfProduct('')
-    //   setBrand('')
-    //   setImage('')
-    //   setPrice(0)
-    //   setQuantity(0)
-    //   setProductDetails("")
-    //   setCategoryOfProduct('')
-    //   // setRelatedProducts([])
-    //   setSize('')
-
-    //   alert("Done")
-    //   navigate("/")
 
   service
     .addProduct({ nameOfProduct, brand, categoryOfProduct, image, price, size, quantity, ProductDetails })
@@ -131,13 +116,6 @@ function handleSubmit(e){
           onChange={(e) => setSize(e.target.value)}
         />
 
-        {/* <label htmlFor="">Image</label>
-        <input
-          type="file"
-          name="image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        /> */}
 
         <input type='file' onChange={(event) => handleFileUpload(event)} />
 

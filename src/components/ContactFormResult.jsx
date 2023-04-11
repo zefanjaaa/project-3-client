@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Link,useParams }from 'react-router-dom'
+import {Link}from 'react-router-dom'
 import axios from 'axios'
 
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
@@ -11,7 +11,7 @@ const API = process.env.API2 || "http://localhost:3000"
 function ContactFormResult({contactId}) {
 
     const [contact, setContact] = useState([])
-    // const { contactId } = useParams()
+   
 
 
     const getAllContacts = () => {
@@ -28,7 +28,7 @@ function ContactFormResult({contactId}) {
             })
         .catch((error) => console.log("THERE IS AN ERROR GETTING THE CONTACT",error))
     }
-    console.log('contact', contactId)
+    
 
 
     const removeContact = () => {

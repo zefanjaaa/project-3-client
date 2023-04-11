@@ -1,35 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
-// import { useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth.context';
 
-
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
-// const storeToken = localStorage.getItem('authToken');
-
 function EditUser(props) {
-
 
     const {logOutUser} = useContext(AuthContext)
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
-    // const [password, setPassword] = useState("")
-
-    // const navigate = useNavigate();
-
-//OLD CODE ===========
-    
-    
-    // const { userId } = useParams()
-
-//NEW CODE ========
-
-    // const { user } = useContext(AuthContext)
-    // const userId = user._id
-
-    
-
+   
     useEffect(() => {
      
         const findToken = localStorage.getItem('authToken')
@@ -39,10 +19,10 @@ function EditUser(props) {
 
             .then((response) => {
                 const oneUser = response.data;
-                console.log(response.data)
+            
                 setName(oneUser.name);
                 setSurname(response.data.surname)
-                // setPassword(oneUser.password)
+                
             })
         .catch((error) => console.log("THERE IS AN ERROR", error))
     }, [])
@@ -71,18 +51,12 @@ function EditUser(props) {
 
         axios
         .delete(`${API_URL}/auth/${props.user._id}`, { headers: { Authorization: `Bearer ${storeToken}` } })
-        .then(() => {
-        
-        // localStorage.removeItem('authToken')
-
+            .then(() => {
+            
         logOutUser()
         
     })
-
-    
-
         .catch((error) => {console.log('THERE IS AN ERROR DELETING THE USER',error)})
-
     }
 
   return (
@@ -97,8 +71,6 @@ function EditUser(props) {
               <input type='text' name='surname' value={surname} onChange={(event) => setSurname(event.target.value)}/>
 
            <button type='submit'> Update user </button>
-
-           
 
           </form>
           

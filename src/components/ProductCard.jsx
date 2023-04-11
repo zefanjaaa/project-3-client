@@ -10,13 +10,10 @@ import { Link } from "react-router-dom";
 
 function ProductCard({ price, image, brand, nameOfProduct,_id }) {
 
-  
   const API = "http://localhost:3000"
   
   const cart = useContext(CartContex);
   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
-
-
 
   return (
       <div key={nameOfProduct} className="prodCard">

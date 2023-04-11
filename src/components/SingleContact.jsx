@@ -22,8 +22,7 @@ function SingleContact() {
             })
         .catch((error) => {console.log('THERE IS AN ERROR GETTING AND SETTING CONTACT',error)})
     }
-    console.log('test single', contactId)
-    
+
     const removeContact = () => {
         const token = localStorage.getItem('authToken')
         

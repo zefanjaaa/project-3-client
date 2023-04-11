@@ -1,14 +1,14 @@
 import React,{useContext, useState} from 'react'
 import axios from 'axios'
 import * as FaIcons from "react-icons/fa";
-import { useParams } from 'react-router-dom';
+
 import { AuthContext } from '../context/auth.context';
 
 function AddtoWishlist({productId}) {
     const [add, setAdd] = useState(false);
     
 const {user} = useContext(AuthContext)
-
+  
     const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
     const handleAddToWishList = () => {
@@ -18,6 +18,7 @@ const {user} = useContext(AuthContext)
             .then(response => {
           alert("The product is added to your wishlist!")
                 setAdd(false)
+              
             })
             .catch((error) => {
                 console.log('there is an error adding a product to your wishlist', error)

@@ -21,7 +21,7 @@ function ProdCard3({
 }) {
 
 
-
+console.log('userId is:',userId)
   const cart = useContext(CartContex);
   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
 
@@ -39,9 +39,7 @@ function ProdCard3({
         <Card.Body className="cardBody">
           <Card.Text>
             <Card.Text className="ProdName">
-              <NavLink className="active" to={`/product/${_id}`}>
-        
-                
+              <NavLink className="active" to={`/product/${productId}`}>
                 <p>{nameOfProduct}</p>
               </NavLink>
             </Card.Text>
