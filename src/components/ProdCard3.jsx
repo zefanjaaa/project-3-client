@@ -21,7 +21,7 @@ function ProdCard3({
 }) {
 
 
-console.log('userId is:',userId)
+
   const cart = useContext(CartContex);
   const ProductQuantity = cart.getProductQuantity(nameOfProduct._id);
 
