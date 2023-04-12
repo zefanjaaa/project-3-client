@@ -5,6 +5,7 @@ import RemoveFromWishlist from "./RemoveFromWishlist";
 
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
+
   const { user } = useContext(AuthContext);
   const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
@@ -41,7 +42,7 @@ function RenderWishlist() {
           <RemoveFromWishlist productId={item._id} getWishlist={getWishlist} />
         </div>
       ))}
-  
+
     </div>
   );
 }
