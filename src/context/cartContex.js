@@ -4,7 +4,7 @@ export const CartContex = createContext();
 
 export function CartProvider({ children }) {
   const [cartProds, setCartProds] = useState([]);
-  console.log(cartProds)
+  console.log('these are the cartProds:',cartProds)
 
   // const getCart = () => {
   //   axios.get(/*to cart */).then(response => setCartProds(response.data))
