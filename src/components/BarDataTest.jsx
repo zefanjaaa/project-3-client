@@ -40,13 +40,7 @@ const BarDataTest = [
     icon: <AiIcons.AiFillAppstore />,
     className: "nav-text"
     },
-    {
-      title: "Check Out",
-      path: "/checkout",
-      icon: <AiIcons.AiFillAppstore/>,
-      className: "nav-text"
-    }, 
-
+    
     {
       title: "YOU.",
       path: "/wishlist",

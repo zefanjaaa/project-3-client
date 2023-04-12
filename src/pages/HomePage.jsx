@@ -53,7 +53,7 @@ function HomePage() {
       </Carousel.Item>
     </Carousel>
 
-    <br></br>
+    
 
 
 

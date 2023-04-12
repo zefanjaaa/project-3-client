@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
@@ -37,9 +37,10 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
         <div className="navbar">
           <FaIcons.FaBars onClick={showSidebar} className="BarsIcon" />
 
-          <Link to='/'>
+          <NavLink to='/' className="YouLogoLink">
           <h1 className="YouLogo">YOU.</h1>
-</Link>
+          </NavLink>
+
           {!isLoggedIn && (
             <div>
                {/*<Link to="/auth/signup">
