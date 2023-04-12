@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import RemoveFromWishlist from "./RemoveFromWishlist";
+import "../style/RenderWishlist.css"
+import Card from "react-bootstrap/Card";
 
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -35,11 +37,19 @@ function RenderWishlist() {
     <div>
       <h1>This is your wishlist</h1>
       {wishlist.map((item) => (
-        <div key={item._id}>
-           <h2>{item.nameOfProduct}</h2>
+        <div key={item._id} className="cardplacement">
+          <Card className="cardbody" border="dark" style={{width:'15rem'}}>
+           
+            <Card.Img className="pic" whileHover={{ scale:1.0}} variant="top" src={item.image} alt="wishlist-pic" />
+            {/* <img src={item.image} alt="wishlistpic"  style={{ width: "15rem" }}/>/ */}
+            <Card.Text>
+              <p>{item.nameOfProduct}</p>
+            </Card.Text>
+            <Card.Text>
               <p>{item.price}</p>
-          <img src={item.image} alt="wishlistpic"  style={{ width: "15rem" }}/>
-          <RemoveFromWishlist productId={item._id} getWishlist={getWishlist} />
+              </Card.Text>
+            <RemoveFromWishlist productId={item._id} getWishlist={getWishlist} />
+            </Card>
         </div>
       ))}
 

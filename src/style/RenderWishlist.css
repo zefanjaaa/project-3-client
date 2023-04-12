@@ -1,0 +1,9 @@
+.cardbody{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.cardplacement{
+    display: grid;
+}
