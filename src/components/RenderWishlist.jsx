@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import RemoveFromWishlist from "./RemoveFromWishlist";
 import "../style/RenderWishlist.css"
 import Card from "react-bootstrap/Card";
+import { Link,NavLink } from "react-router-dom";
 
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -34,16 +35,22 @@ function RenderWishlist() {
   }, [user._id]);
 
   return (
-    <div>
-      <h1>This is your wishlist</h1>
+    <div className="container">
+          <h1>This is your wishlist</h1>
+  
+    <div className="cardplacement">
+  
       {wishlist.map((item) => (
-        <div key={item._id} className="cardplacement">
+        <div key={item._id} >
           <Card className="cardbody" border="dark" style={{width:'15rem'}}>
-           
-            <Card.Img className="pic" whileHover={{ scale:1.0}} variant="top" src={item.image} alt="wishlist-pic" />
+           <NavLink to={`/product/${item._id}`}>
+              <Card.Img className="pic" whileHover={{ scale: 1.0 }} variant="top" src={item.image} alt="wishlist-pic" />
+              </NavLink>
             {/* <img src={item.image} alt="wishlistpic"  style={{ width: "15rem" }}/>/ */}
             <Card.Text>
-              <p>{item.nameOfProduct}</p>
+              <NavLink  to={`/product/${item._id}`} >
+                <p class='text-black'>{item.nameOfProduct}</p>
+                </NavLink>
             </Card.Text>
             <Card.Text>
               <p>{item.price}</p>
@@ -52,7 +59,7 @@ function RenderWishlist() {
             </Card>
         </div>
       ))}
-
+  </div>
     </div>
   );
 }

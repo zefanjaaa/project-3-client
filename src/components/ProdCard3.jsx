@@ -28,6 +28,8 @@ function ProdCard3({
   return (
     <div>
       <Card border="light" style={{ width: "15rem" }} key={nameOfProduct}>
+      <NavLink className="active" to={`/product/${productId}`}>
+        
         <Card.Img
           className="pic"
           whileHover={{ scale: 0.9 }}
@@ -35,7 +37,8 @@ function ProdCard3({
           src={image}
           alt="pic-product"
         />
-
+              </NavLink>
+             
         <Card.Body className="cardBody">
           <Card.Text>
             <Card.Text className="ProdName">
@@ -44,9 +47,13 @@ function ProdCard3({
               </NavLink>
             </Card.Text>
             <Card.Text>
-              <p className="prodBrandText">{brand}</p>
+            <NavLink className="active" to={`/product/${productId}`}>
+              
+                <p className="prodBrandText">{brand}</p>
+                </NavLink>
+                
             </Card.Text>
-            
+          
             <Card.Text className="prodPriceText">
             
             <p className="prodPriceText">${price} <span></span> <AddtoWishlist productId={productId} userId={userId} /></p>
@@ -54,7 +61,9 @@ function ProdCard3({
             </Card.Text>
 
           </Card.Text>
-        </Card.Body>
+          </Card.Body>
+         
+          
       </Card>
     </div>
   );
