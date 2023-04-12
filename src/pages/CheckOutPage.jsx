@@ -14,6 +14,14 @@ function CheckOutPage() {
   const { items, getTotalCost, getTotalItems, deleteWholeCart, deleteCart } =
     useContext(CartContex);
 
+  const totalCost = getTotalCost()
+
+  const totalItems = getTotalItems()
+ 
+
+ 
+
+  
   return (
     <div className="maincontainer">
       <div className="container">
@@ -30,6 +38,18 @@ function CheckOutPage() {
               <span className="text-muted">YOUR CART</span>
               <span className="badge badge-secondary badge-pill">3</span>
             </h4>
+            <h6>
+              {items?.map((product) => (
+                <div>
+                  {/* this is the name of the product that is added to the cart */}
+                  <p>{product.nameOfProduct}</p>
+                 {/* this is the name of the brand that is added to the cart */}
+                  <p>{product.brand}</p>
+                  {/* This is the price of the product added to the cart */}
+                  <p>{product.price}</p>
+                </div>
+              ))}
+            </h6>
             <ul className="list-group mb-3">
               <li className="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
@@ -60,9 +80,10 @@ function CheckOutPage() {
                 <span className="text promocodeControl">-$5</span>
               </li>
               <li className="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>$20</strong>
+                <span>Total: {totalCost} (USD)</span>
+                {/* <strong>$20</strong> */}
               </li>
+              <button onClick={deleteWholeCart}>Remove the items from your cart</button>
             </ul>
             <form className="card p-2">
               <div className="input-group">
