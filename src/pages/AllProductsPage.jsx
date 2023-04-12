@@ -22,7 +22,7 @@ function AllProductsPage() {
 
       .then((response) => {
         setProducts(response.data)
-        console.log('RESPONSE.DATA',response.data)
+  
       })
      
       .catch((error) => console.log("THERE IS AN ERROR ==>", error));
