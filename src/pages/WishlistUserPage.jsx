@@ -4,14 +4,15 @@ import EditUser from "../components/EditUser";
 import ContactFormResult from "../components/ContactFormResult";
 import RenderWishlist from "../components/RenderWishlist";
 import { useParams } from "react-router-dom";
-
+import AddProduct from '../components/AddProduct'
 function WishlistUserPage() {
   const { user, administrator } = useContext(AuthContext);
   const { contactId } = useParams()
   
   const [edit, setEdit] = useState(false);
   const [contact, setContact] = useState(false);
-  const [wishlist,setWishlist] = useState(false)
+  const [wishlist, setWishlist] = useState(false)
+  const [add,setAdd] = useState(false)
 
   const handleEdit = () => {
     setEdit(!edit);
@@ -25,6 +26,10 @@ function WishlistUserPage() {
     setWishlist(!wishlist)
   }
   
+  const handleAdd = () => {
+  setAdd(!add)
+}
+
   return (
     <div>
       <h1>User environment</h1>
@@ -42,7 +47,10 @@ function WishlistUserPage() {
 
 
       <button onClick={handleWishlist}>wishlist</button>
-{wishlist ?  <RenderWishlist  /> : <p></p> }
+      {wishlist ? <RenderWishlist /> : <p></p>}
+      
+      {administrator ? <button onClick={handleAdd}>Add Product</button> : <p></p>  }
+      {administrator && add ? <AddProduct /> : <p></p> }
     </div>
   );
 }

@@ -59,7 +59,7 @@ function ContactFormResult({contactId}) {
                           <p><b>Title:</b> {contact.title}</p>
                           </Link>
                       <p><b>Name:</b>{contact.name} </p>
-                      <button onClick={removeContact}>remove the contact</button>
+                      <button class='btn btn-danger btn-sm mb-3' onClick={removeContact}>remove the contact</button>
                       </div>
               ))}
               </div>
