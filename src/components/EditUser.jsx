@@ -37,7 +37,7 @@ function EditUser(props) {
             `${API_URL}/auth/${props.user._id}`,body, {headers: {Authorization:`Bearer ${storeToken}`}}
         )
             .then((response) => {
-            console.log('RESPONSE ==>',response)
+         alert('Your user information is updated!')
             setName("")
             setSurname('')
             })
