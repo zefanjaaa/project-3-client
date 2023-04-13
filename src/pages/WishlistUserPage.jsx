@@ -33,7 +33,7 @@ function WishlistUserPage() {
   };
 
   return (
-    <div>
+    <div className="AllWishpage">
       <section className="py-5">
         <div className="container">
           <div className="row">
@@ -46,9 +46,12 @@ function WishlistUserPage() {
                   </div>*/}
 
                   <div className="col-md-6">
-                    <h6 className="mb-0 font-weight-bold">
-                      <b className="calorgray">WELCOME</b><h3 className="NameControl"> {user && user.name} {user && user.surname}</h3>
-                    </h6>
+                  <br></br>
+                    <h5 className="mb-0 font-weight-bold">
+                      <b className="calorgray">WELCOME</b><br></br><br></br><h2 className="NameControl"> {user && user.name} {user && user.surname}</h2>
+                      
+                      <h5>{user.email}</h5>
+                    </h5>
                   </div>
 
                   <div className="col-md-6 d-grid gap-2 justify-content-md-end">

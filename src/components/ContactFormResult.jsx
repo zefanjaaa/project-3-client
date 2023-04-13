@@ -74,7 +74,7 @@ function ContactFormResult({ contactId }) {
               <span>{contact.name}</span>{" "}
             </p>
             <button
-              className="btn btn-link btn-sm linlButtonControl"
+              className="btn btn-light btn-sm linlButtonControl"
               onClick={removeContact}
             >
               REMOVE

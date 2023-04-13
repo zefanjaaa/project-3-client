@@ -80,10 +80,10 @@ function EditUser(props) {
              
               <br></br>
               <br></br>
-           <button type='submit' class=' btn btn-link btn-sm linlButtonControl2'> UPDATE ACCOUNT</button>
+           <button type='submit' class=' btn btn-light btn-sm linlButtonControl2'> UPDATE ACCOUNT</button>
            <br></br>
            <br></br>
-           <button type='submit' class=' btn btn-link btn-sm linlButtonControl2' onClick={deleteUser}> DELETE ACCOUNT </button>
+           <button type='submit' class=' btn btn-light btn-sm linlButtonControl2' onClick={deleteUser}> DELETE ACCOUNT </button>
           </form>
           
            
