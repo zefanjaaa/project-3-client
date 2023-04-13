@@ -1,70 +1,78 @@
-import React, { useState, useEffect } from 'react'
-import {Link}from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
+const API = process.env.API2 || "http://localhost:3000";
 
-const API = process.env.API2 || "http://localhost:3000"
+function ContactFormResult({ contactId }) {
+  const [contact, setContact] = useState([]);
 
+  const getAllContacts = () => {
+    const storedToken = localStorage.getItem("authToken");
 
-function ContactFormResult({contactId}) {
+    axios
+      .get(`${API_URL}/contact/contacts`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
 
-    const [contact, setContact] = useState([])
-   
+      .then((response) => {
+        setContact(response.data);
+      })
+      .catch((error) =>
+        console.log("THERE IS AN ERROR GETTING THE CONTACT", error)
+      );
+  };
 
+  const removeContact = () => {
+    const token = localStorage.getItem("authToken");
 
-    const getAllContacts = () => {
-        const storedToken = localStorage.getItem("authToken")
+    axios
+      .delete(`${API_URL}/contact/contacts/${contactId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
 
-        axios.get(`${API_URL}/contact/contacts`, {
-            headers:{Authorization:`Bearer ${storedToken}`},
-        })
+      .then(() => {
+        alert("Contact removed");
+        getAllContacts();
+      })
+      .catch((error) => {
+        console.log("there is an error deleting a contact!", error);
+      });
+  };
 
-            .then((response) => {
-                setContact(response.data)
-                
-              
-            })
-        .catch((error) => console.log("THERE IS AN ERROR GETTING THE CONTACT",error))
-    }
-    
-
-
-    const removeContact = () => {
-        const token = localStorage.getItem('authToken')
-        
-        axios.delete(`${API_URL}/contact/contacts/${contactId}`, { headers: { Authorization: `Bearer ${token}` } })
-       
-            .then(() => {
-                alert('Contact removed')
-                getAllContacts()
-            })
-            .catch((error) => {
-            console.log('there is an error deleting a contact!', error)
-        })
-    }
-
-    useEffect(() => {
-        getAllContacts()
-    },[])
+  useEffect(() => {
+    getAllContacts();
+  }, []);
 
   return (
-      <div>
+    <div>
+      <div key={contact._id}>
+        <h3>CONTACT FORM RESULT</h3>
+        {contact.map((contact) => (
           <div key={contact._id}>
-              <h1>Contact form result</h1>
-              {contact.map((contact) => (
-                  <div key={contact._id}>
-                      <Link to={`/contact/${contact._id}`}>
-                          <p><b>Title:</b> {contact.title}</p>
-                          </Link>
-                      <p><b>Name:</b>{contact.name} </p>
-                      <button class='btn btn-danger btn-sm mb-3' onClick={removeContact}>remove the contact</button>
-                      </div>
-              ))}
-              </div>
+            <Link to={`/contact/${contact._id}`}>
+              <p>
+                <b>TITLE:</b>
+                <span> {contact.title}</span>
+              </p>
+            </Link>
+            <p>
+              <b>NAME:</b>
+              <span>{contact.name}</span>{" "}
+            </p>
+            <button
+              className="btn btn-dark btn-sm wishlist-remove-btn"
+              onClick={removeContact}
+            >
+              REMOVE
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default ContactFormResult
+export default ContactFormResult;
