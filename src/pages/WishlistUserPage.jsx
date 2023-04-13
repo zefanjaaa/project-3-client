@@ -92,7 +92,7 @@ function WishlistUserPage() {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="wishlist-header border p-2">
+              <div className="wishlist-header border-light p-2">
                 <div className="row">
                   <div className="col-md-12">
                     {administrator ? (
@@ -122,7 +122,7 @@ function WishlistUserPage() {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="wishlist-header border p-2">
+              <div className="wishlist-header border-light p-2">
                 <div className="row">
                   <div className="col-md-12">
                     {administrator ? (
