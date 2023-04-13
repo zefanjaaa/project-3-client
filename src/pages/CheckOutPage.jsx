@@ -83,7 +83,7 @@ function CheckOutPage() {
                 <span>Total: {totalCost} (USD)</span>
                 {/* <strong>$20</strong> */}
               </li>
-              <button onClick={deleteWholeCart}>Remove the items from your cart</button>
+              <button class='btn btn-dark btn-sm w-50 test' onClick={deleteWholeCart}>Remove the items from your cart</button>
             </ul>
             <form className="card p-2">
               <div className="input-group">

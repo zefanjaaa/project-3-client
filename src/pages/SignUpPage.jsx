@@ -29,6 +29,7 @@ function SignUpPage() {
     axios
       .post(`${API_URL}/auth/signup`, body)
       .then(() => {
+        alert('New user created')
         navigate("/auth/login");
       })
       .catch((error) => {

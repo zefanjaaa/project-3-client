@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams,useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import Card from "react-bootstrap/Card";
 
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
@@ -41,17 +42,19 @@ function SingleContact() {
     },[])
   return (
       <div>
-          <h1>Single Contact information component</h1>
+          <h1>Single Contact information </h1>
           {contact && (
               <div>
-                  <h3><b>Title:</b>{contact.title}</h3>
+                  <Card border='dark' style={{width:'12rem', textAlign:'center'}}>
+                  <h6><b>Title:</b>{contact.title}</h6>
                   <p><b>Name:</b>{contact.name}</p>
-                  <p><i>Email:</i>{contact.email}</p>
+                  <p><b>Email:</b>{contact.email}</p>
                   <br />
                   <br />
                   <p><b>Text:</b>{contact.text}</p>
-<button onClick={removeContact}>remove</button>
-                  <p></p>
+<button class='btn btn-danger btn-sm'  type='button' onClick={removeContact}>remove</button>
+                      <p></p>
+                      </Card>
               </div>
           )}
     </div>

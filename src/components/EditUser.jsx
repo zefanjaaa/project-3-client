@@ -37,7 +37,7 @@ function EditUser(props) {
             `${API_URL}/auth/${props.user._id}`,body, {headers: {Authorization:`Bearer ${storeToken}`}}
         )
             .then((response) => {
-            console.log('RESPONSE ==>',response)
+         alert('Your user information is updated!')
             setName("")
             setSurname('')
             })
@@ -70,11 +70,11 @@ function EditUser(props) {
               <label> Surname:</label>
               <input type='text' name='surname' value={surname} onChange={(event) => setSurname(event.target.value)}/>
 
-           <button type='submit'> Update user </button>
+           <button type='submit' class=' btn btn-dark'> Update user </button>
 
           </form>
           
-           <button type='submit' onClick={deleteUser}> Delete user </button>
+           <button type='submit' class=' btn btn-danger' onClick={deleteUser}> Delete user </button>
            
          
       
