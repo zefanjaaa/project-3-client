@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { AuthContext } from '../context/auth.context';
-
+import "../style/EditUser.css"
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
 function EditUser(props) {
@@ -61,20 +61,32 @@ function EditUser(props) {
 
   return (
       <div>
-          <h3>EDIT USER INFORMATION</h3>
+          <br></br>
           <form onSubmit={handleSubmit}>
-              
-              <label> Name:</label>
-             <input type="text" name='name' value={name} onChange={(event) =>setName(event.target.value)}/> 
-              
-              <label> Surname:</label>
-              <input type='text' name='surname' value={surname} onChange={(event) => setSurname(event.target.value)}/>
 
-           <button type='submit' class=' btn btn-dark'> Update user </button>
+          <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">NAME</label>
+          <br></br>
+          <input type="text" name='name' value={name} onChange={(event) =>setName(event.target.value)}/> 
+          </div>
 
+          <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">SURNAME</label>
+          <br></br>
+          <input type='text' name='surname' value={surname} onChange={(event) => setSurname(event.target.value)}/>
+          </div>
+              
+              
+             
+              <br></br>
+              <br></br>
+           <button type='submit' class=' btn btn-link btn-sm linlButtonControl2'> UPDATE ACCOUNT</button>
+           <br></br>
+           <br></br>
+           <button type='submit' class=' btn btn-link btn-sm linlButtonControl2' onClick={deleteUser}> DELETE ACCOUNT </button>
           </form>
           
-           <button type='submit' class=' btn btn-danger' onClick={deleteUser}> Delete user </button>
+           
            
          
       

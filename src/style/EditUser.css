@@ -1,0 +1,14 @@
+.linlButtonControl2{
+   color: black;
+   text-decoration: none;
+   font-weight: 700;
+}
+
+.linlButtonControl2:hover{
+   color: rgb(160, 52, 184);
+}
+
+.formLabel{
+   font-size: 16px;
+   font-weight: 600;
+}
