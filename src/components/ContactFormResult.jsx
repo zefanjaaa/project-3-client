@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
+import "../style/ContactResult.css";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -48,26 +49,32 @@ function ContactFormResult({ contactId }) {
 
   return (
     <div>
+    <br></br>
+    <br></br>
       <div key={contact._id}>
-        <h3>CONTACT FORM RESULT</h3>
         {contact.map((contact) => (
-          <div key={contact._id}>
-            <Link to={`/contact/${contact._id}`}>
+          <div key={contact._id} className=" d-grid gridFix">
+            <br></br>
+            <NavLink
+              className="NavLinkResultForm"
+              to={`/contact/${contact._id}`}
+            >
               <p>
                 <b>TITLE:</b>
                 <span> {contact.title}</span>
               </p>
-            </Link>
+            </NavLink>
             <p>
               <b>NAME:</b>
               <span>{contact.name}</span>{" "}
             </p>
             <button
-              className="btn btn-dark btn-sm wishlist-remove-btn"
+              className="btn btn-link btn-sm linlButtonControl"
               onClick={removeContact}
             >
               REMOVE
             </button>
+            <br></br>
           </div>
         ))}
       </div>

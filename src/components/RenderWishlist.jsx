@@ -38,7 +38,7 @@ function RenderWishlist() {
   return (
     <div>
     <br></br>
-      <h3>YOUR WISHLIST</h3>
+      
 
       <div>
         {wishlist.map((item) => (
@@ -67,7 +67,7 @@ function RenderWishlist() {
                               
                             </div>
 
-                            <div className="col-md-2">
+                            <div className="col-md-3">
                               
                                 <h6>${item.price}</h6>
                               
@@ -82,9 +82,9 @@ function RenderWishlist() {
                               />
                             </div>
 
-                            <div className="col-md-2">
+                            <div className="col-md-1">
                             <NavLink to={`/product/${item._id}`}>
-                             <button className="btn btn-dark btn-sm wishlist-remove-btn"
+                             <button className="btn btn-outline-dark btn-sm"
                              
                                
                                >VIEW</button>

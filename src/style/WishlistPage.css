@@ -1,6 +1,13 @@
 
-.ProdGrid2{
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax( 200px, 1fr));
-   grid-gap:3em;
+
+.calorgray{
+  color: rgb(157, 22, 215);
 }
+
+/* .edit{
+   font-weight: 900;
+} */
+
+/* .colorcontrol{
+   background-color: rgb(250, 243, 243);
+} */
