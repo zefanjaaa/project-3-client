@@ -99,13 +99,13 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
 
       <Modal show={show} onHide={handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Shopping Cart</Modal.Title>
+          <Modal.Title>SHOPPING CART</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <h3>
+          <h3 className="carth3">
             {" "}
-            You have: {totalItemsInCart} items 
+          YOU HAVE: {totalItemsInCart} ITEMS
           </h3>
         </Modal.Body>
 
@@ -124,11 +124,11 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
           ))}
 
          
-          <Modal.Title> Total price: ${totalPrice}{" "}</Modal.Title>
+          <Modal.Title> TOTAL PRICE: ${totalPrice}{" "}</Modal.Title>
         
         <br></br>
         <Link to="/checkout">
-        <Button variant="dark"> Checkout</Button>
+        <Button variant="dark"> Go To Checkout</Button>
       </Link>
 
         </Modal.Body>

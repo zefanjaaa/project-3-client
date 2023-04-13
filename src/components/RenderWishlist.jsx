@@ -2,16 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import RemoveFromWishlist from "./RemoveFromWishlist";
-import "../style/RenderWishlist.css"
+import "../style/RenderWishlist.css";
 import Card from "react-bootstrap/Card";
-import { Link,NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
 
   const { user } = useContext(AuthContext);
-  const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
-
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
   const getWishlist = () => {
     axios
@@ -23,43 +22,86 @@ function RenderWishlist() {
         return Promise.all(wishlistItems);
       })
       .then((itemResponses) => {
-        const wishlistItems = itemResponses.map((itemResponse) => itemResponse.data);
+        const wishlistItems = itemResponses.map(
+          (itemResponse) => itemResponse.data
+        );
         setWishlist(wishlistItems);
       })
       .catch((error) => {
         console.log("there is an error rendering the wishlist", error);
       });
-  }
+  };
   useEffect(() => {
-    getWishlist()
+    getWishlist();
   }, [user._id]);
 
   return (
-    <div className="container">
-          <h1>This is your wishlist</h1>
-  
-    <div className="cardplacement">
-  
-      {wishlist.map((item) => (
-        <div key={item._id} >
-          <Card className="cardbody" border="dark" style={{width:'15rem'}}>
-           <NavLink to={`/product/${item._id}`}>
-              <Card.Img className="pic" whileHover={{ scale: 1.0 }} variant="top" src={item.image} alt="wishlist-pic" />
-              </NavLink>
-            {/* <img src={item.image} alt="wishlistpic"  style={{ width: "15rem" }}/>/ */}
-            <Card.Text>
-              <NavLink  to={`/product/${item._id}`} >
-                <p class='text-black'>{item.nameOfProduct}</p>
-                </NavLink>
-            </Card.Text>
-            <Card.Text>
-              <p>{item.price}</p>
-              </Card.Text>
-            <RemoveFromWishlist productId={item._id} getWishlist={getWishlist} />
-            </Card>
-        </div>
-      ))}
-  </div>
+    <div>
+    <br></br>
+      <h3>YOUR WISHLIST</h3>
+
+      <div>
+        {wishlist.map((item) => (
+          <div key={item._id}>
+            <section className="py-5">
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-12">
+                    <div className="wishlist-content">
+                      <div className="card">
+                        <div className="card-body">
+                          <div className="row">
+                            <div className="col-md-1">
+                              <NavLink to={`/product/${item._id}`}>
+                                <img
+                                  src={item.image}
+                                  className="w-100"
+                                  alt="image"
+                                />
+                              </NavLink>
+                            </div>
+
+                            <div className="col-md-6">
+                              
+                                <h6>{item.nameOfProduct}</h6>
+                              
+                            </div>
+
+                            <div className="col-md-2">
+                              
+                                <h6>${item.price}</h6>
+                              
+                            </div>
+
+                            <div className="col-md-1">
+                              
+
+                              <RemoveFromWishlist
+                                productId={item._id}
+                                getWishlist={getWishlist}
+                              />
+                            </div>
+
+                            <div className="col-md-2">
+                            <NavLink to={`/product/${item._id}`}>
+                             <button className="btn btn-dark btn-sm wishlist-remove-btn"
+                             
+                               
+                               >VIEW</button>
+                               </NavLink>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

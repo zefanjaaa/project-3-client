@@ -4,19 +4,16 @@ import { useParams } from "react-router-dom";
 import "../style/SingleProdPage.css";
 import { CartContex } from "../context/cartContex";
 import { Col, Form, Row, Button } from "react-bootstrap";
-import * as FaIcons from "react-icons/fa";
+// import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
 import AddtoWishlist from "../components/AddtoWishlist";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
-
-const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
-
-function SingleProductPage({userId}) {
+function SingleProductPage({ userId }) {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
 
-  
   const cart = useContext(CartContex);
 
   const ProductQuantity = cart.getProductQuantity(product?._id);
@@ -51,10 +48,9 @@ function SingleProductPage({userId}) {
             <div className="row">
               <h2>{product.nameOfProduct}</h2>
               <h3>{product.brand} </h3>
-
-              <span>${product.price}</span>
             </div>
 
+            <p className="priceControl"> ${product.price}</p>
             <p>Size:{product.size}</p>
             <p>Category: {product.categoryOfProduct}</p>
             <p>Details: {product.ProductDetails}</p>
@@ -102,7 +98,7 @@ function SingleProductPage({userId}) {
               </BsIcons.BsBagFill>
             )}
             <br></br>
-<AddtoWishlist  productId={productId} userId={userId} />
+            <AddtoWishlist productId={productId} userId={userId} />
           </div>
         </div>
       )}

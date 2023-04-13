@@ -1,4 +1,4 @@
-.cardbody{
+/* .cardbody{
     display: flex;
     justify-content: center;
     text-align: center;
@@ -21,4 +21,11 @@
 .container {
     text-align: center;
     
-}
+} */
+
+
+.ProdGrid2{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax( 200px, 1fr));
+    grid-gap:3em;
+ }
