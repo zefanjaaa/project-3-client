@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import {Link}from 'react-router-dom'
 import axios from 'axios'
+import Card from "react-bootstrap/Card";
+import '../style/ContactFormResult.css'
 
 const API_URL = process.env.REACT_APP_API_URL||"http://localhost:5005";
 
@@ -55,11 +57,13 @@ function ContactFormResult({contactId}) {
               <h1>Contact form result</h1>
               {contact.map((contact) => (
                   <div key={contact._id}>
+                      <Card style={{width:'15rem'}} className='wrap'>
                       <Link to={`/contact/${contact._id}`}>
                           <p><b>Title:</b> {contact.title}</p>
                           </Link>
                       <p><b>Name:</b>{contact.name} </p>
-                      <button class='btn btn-danger btn-sm mb-3' onClick={removeContact}>remove the contact</button>
+                          <button class='btn btn-danger mb-3 custom-width' onClick={removeContact}>remove contact</button>
+                          </Card>
                       </div>
               ))}
               </div>
