@@ -51,41 +51,41 @@ function SingleProductPage({ userId }) {
             </div>
 
             <p className="priceControl"> ${product.price}</p>
-            <p>Size:{product.size}</p>
-            <p>Category: {product.categoryOfProduct}</p>
-            <p>Details: {product.ProductDetails}</p>
+            <p><b className="textControling">SIZE / </b>{product.size}</p>
+            <p><b className="textControling">CATEGORY: </b> {product.categoryOfProduct}</p>
+            <p><b className="textControling">DESCRIPTION </b><br></br>{product.ProductDetails}</p>
 
             {ProductQuantity > 0 ? (
               <div>
                 <Form as={Row}>
                   <Form.Label column="true" sm="6">
-                    In Cart:{ProductQuantity}
+                    ADD TO CART:X{ProductQuantity}
                   </Form.Label>
                   <Col sm="6">
                     <Button
-                      variant="dark"
+                      variant=""
                       sm="6"
                       onClick={() => cart.addOneToCart(product)}
-                      className="mx-2"
+                      className="mx-2 btn-outline-secondary btn-md"
                     >
                       +
                     </Button>
                     <Button
-                      variant="dark"
+                      variant=""
                       sm="6"
                       onClick={() => cart.removeOneFromCart(product)}
-                      className="mx-2"
+                      className="mx-2 btn-outline-secondary btn-md"
                     >
                       -
                     </Button>
                   </Col>
                 </Form>
                 <Button
-                  variant="dark"
+                  variant=""
                   onClick={() => cart.deleteCart(product)}
-                  className="my-2"
+                  className="my-2 btn-outline-secondary btn-sm"
                 >
-                  Remove from Cart
+                  REMOVE FROM CART
                 </Button>
               </div>
             ) : (
