@@ -33,29 +33,33 @@ function WishlistUserPage() {
   };
 
   return (
-    <div>
+    <div className="AllWishpage">
       <section className="py-5">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="wishlist-header border p-2">
+              <div className="wishlist-header border-light p-2">
                 <div className="row">
-                  <div className="col-md-6">
+
+                  {/*<div className="col-md-6">
                     <h2 className="mb-0 font-weight-bold">YOUR PROFILE</h2>
+                  </div>*/}
+
+                  <div className="col-md-6">
+                  <br></br>
+                    <h5 className="mb-0 font-weight-bold">
+                      <b className="calorgray">WELCOME</b><br></br><br></br><h2 className="NameControl"> {user && user.name} {user && user.surname}</h2>
+                      
+                      <h5>{user.email}</h5>
+                    </h5>
                   </div>
 
-                  <div className="col-md-3">
-                    <h6 className="mb-0 font-weight-bold">
-                      <b>Welcome:</b> {user && user.name} {user && user.surname}
-                    </h6>
-                  </div>
-
-                  <div className="col-md-3">
+                  <div className="col-md-6 d-grid gap-2 justify-content-md-end">
                     <button
-                      className="btn btn-dark btn-sm wishlist-remove-btn"
+                      className="btn btn-light btn-md"
                       onClick={handleEdit}
                     >
-                      Edit
+                      EDIT YOUR ACCOUNT
                     </button>
                     {edit ? <EditUser user={user} /> : <p></p>}
                   </div>
@@ -68,16 +72,16 @@ function WishlistUserPage() {
 
       <section className="py-5">
         <div className="container">
-          <div className="row">
+          <div className="row colorcontrol">
             <div className="col-md-12">
               <div className="wishlist-header border p-2">
                 <div className="row">
-                  <div className="col-md-12">
+                  <div className="col-md-12 d-grid gap-2 d-md-block">
                     <button
-                      className="btn btn-dark btn-sm wishlist-remove-btn"
+                      className="btn btn-light btn-md"
                       onClick={handleWishlist}
                     >
-                      wishlist
+                      CLICK TO SEE YOUR WISHLIST
                     </button>
                     {wishlist ? <RenderWishlist /> : <p></p>}
                   </div>
@@ -94,13 +98,13 @@ function WishlistUserPage() {
             <div className="col-md-12">
               <div className="wishlist-header border-light p-2">
                 <div className="row">
-                  <div className="col-md-12">
+                  <div className="col-md-12 d-grid gap-2 d-md-block">
                     {administrator ? (
                       <button
-                        className="btn btn-dark btn-sm wishlist-remove-btn"
+                        className="btn btn-light btn-md"
                         onClick={handleContact}
                       >
-                        Contact
+                      USER REQUESTS VIA CONTACT US
                       </button>
                     ) : (
                       <p></p>
@@ -124,9 +128,9 @@ function WishlistUserPage() {
             <div className="col-md-12">
               <div className="wishlist-header border-light p-2">
                 <div className="row">
-                  <div className="col-md-12">
+                  <div className="col-md-12 d-grid gap-2 d-md-block">
                     {administrator ? (
-                      <button className="btn btn-dark btn-sm wishlist-remove-btn"  onClick={handleAdd}>Add Product</button>
+                      <button className="btn btn-light btn-md"  onClick={handleAdd}>ADD PRODUCTS</button>
                     ) : (
                       <p></p>
                     )}

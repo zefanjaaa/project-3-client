@@ -22,7 +22,7 @@ function ProdCard3({
 
   return (
     <div>
-      <Card border="light" style={{ width: "15rem" }} key={nameOfProduct}>
+      <Card  border="light" style={{ width: "15rem" }} key={nameOfProduct}>
       <NavLink className="active" to={`/product/${productId}`}>
         
         <Card.Img

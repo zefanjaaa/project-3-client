@@ -25,7 +25,7 @@ function RemoveFromWishlist({productId,getWishlist}) {
 
   return (
     <div>
-     <button class='btn btn-dark btn-sm wishlist-remove-btn' onClick={() => remove(productId)}>REMOVE</button>
+     <button class='btn btn-outline-dark btn-sm' onClick={() => remove(productId)}>REMOVE</button>
     </div>
   );
 }
