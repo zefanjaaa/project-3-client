@@ -4,12 +4,7 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
-
 const API = process.env.API2 || "http://localhost:3000"
-
-
-
-   
 
 function ContactFormResult({ contactId }) {
   const [contact, setContact] = useState([]);

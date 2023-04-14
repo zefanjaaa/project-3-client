@@ -27,7 +27,6 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
 
   // const cart = useContext(CartContex);
 
-  // const prodCount = cart.items.reduce((sum, prod)=> sum + prod.quantity, 0); all broke here
   const totalItemsInCart = getTotalItems();
   const totalPrice = getTotalCost();
 
@@ -42,7 +41,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
           </NavLink>
 
           {!isLoggedIn && (
-            <div>
+            <div className="test">
                {/*<Link to="/auth/signup">
                  <Button variant="dark"> Create an account</Button>
           </Link> */ }
@@ -64,9 +63,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
                 <AiIcons.AiOutlineUser />
               </Link>
 
-              {/*<Link to="/product/add">
-            <button>add</button>
-            </Link>*/}
+        
 
               <BsIcons.BsBagFill className="IconBag" onClick={handleShowModal}>
                 {" "}

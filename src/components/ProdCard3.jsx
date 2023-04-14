@@ -1,13 +1,8 @@
-// import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "../style/ProdCard3.css";
-// import { color, motion } from "framer-motion";
 import React, { useContext } from "react";
 import { CartContex } from "../context/cartContex";
 import AddtoWishlist from "./AddtoWishlist";
-// import { Col, Form, Row } from "react-bootstrap";
-// import * as FaIcons from "react-icons/fa";
-// import * as BsIcons from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 
 function ProdCard3({

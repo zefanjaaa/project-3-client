@@ -1,7 +1,6 @@
 import React,{useContext, useState} from 'react'
 import axios from 'axios'
 import * as FaIcons from "react-icons/fa";
-
 import { AuthContext } from '../context/auth.context';
 
 function AddtoWishlist({productId}) {

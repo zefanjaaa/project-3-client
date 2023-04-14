@@ -1,15 +1,11 @@
-
-// import { Button } from 'react-bootstrap'
 // import { CartContex } from '../context/cartContex'
 import React,{useContext, useState} from 'react'
 import axios from 'axios'
-import * as FaIcons from "react-icons/fa";
 import { AuthContext } from '../context/auth.context';
 
 
 function Cart({ price, image, brand, nameOfProduct, _id, productId }) {
 
-  //  const {cart} = useContext(CartContex)
    
    const [addToCart, setAddToCart] = useState(false);
     

@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import "../style/SingleProdPage.css";
 import { CartContex } from "../context/cartContex";
 import { Col, Form, Row, Button } from "react-bootstrap";
-// import * as FaIcons from "react-icons/fa";
 import * as BsIcons from "react-icons/bs";
 import AddtoWishlist from "../components/AddtoWishlist";
 

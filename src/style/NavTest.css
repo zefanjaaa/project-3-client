@@ -165,3 +165,7 @@ span {
 .colorButton{
   color: rgb(123, 39, 123);
 }
+
+.test {
+  margin-right: 60px;
+}

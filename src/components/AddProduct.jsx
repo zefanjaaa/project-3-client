@@ -17,7 +17,7 @@ function AddProductPage(props) {
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [ProductDetails, setProductDetails] = useState("");
-  //   const [RelatedProducts, setRelatedProducts] = useState([]);
+
 
   const navigate = useNavigate();
 

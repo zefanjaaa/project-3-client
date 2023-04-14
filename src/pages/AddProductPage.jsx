@@ -31,7 +31,6 @@ function AddProductPage(props) {
     service
       .uploadImage(uploadData)
       .then((value) => {
-        console.log("THE RETURN VALUE IS ==>", value);
         setImage(value.fileUrl);
       })
       .catch((error) =>

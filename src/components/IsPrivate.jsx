@@ -13,7 +13,6 @@ function IsPrivate({ children }) {
         return children
     }
 
-
 }
 
 export default IsPrivate

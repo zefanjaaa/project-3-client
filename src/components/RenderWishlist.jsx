@@ -3,8 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import RemoveFromWishlist from "./RemoveFromWishlist";
 import "../style/RenderWishlist.css";
-import Card from "react-bootstrap/Card";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function RenderWishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -56,7 +55,7 @@ function RenderWishlist() {
                                 <img
                                   src={item.image}
                                   className="w-100"
-                                  alt="image"
+                                  alt="wishlist-pic"
                                 />
                               </NavLink>
                             </div>
