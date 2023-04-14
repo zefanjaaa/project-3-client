@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CartContex } from "../context/cartContex";
 import { useContext } from "react";
-import '../style/CheckoutPage.css'
+import "../style/CheckoutPage.css";
 
 function CheckOutPage() {
   const [message, setMessage] = useState(null);
@@ -14,23 +14,16 @@ function CheckOutPage() {
   const { items, getTotalCost, getTotalItems, deleteWholeCart, deleteCart } =
     useContext(CartContex);
 
-  const totalCost = getTotalCost()
+  const totalCost = getTotalCost();
 
-  const totalItems = getTotalItems()
- 
+  const totalItems = getTotalItems();
 
- 
-
-  
   return (
     <div className="maincontainer">
       <div className="container">
         <div className="py-5 text-center">
           <h2 className="checkouth2">YOUR DETAILS</h2>
-          <p className="lead">
-            
-          </p>
-
+          <p className="lead"></p>
         </div>
         <div className="row">
           <div className="col-md-4 order-md-2 mb-4">
@@ -38,76 +31,67 @@ function CheckOutPage() {
               <span className="text-muted">YOUR CART</span>
               <span className="badge badge-secondary badge-pill">3</span>
             </h4>
-            <h6>
-              {items?.map((product) => (
-                <div>
-                  {/* this is the name of the product that is added to the cart */}
-                  <p>{product.nameOfProduct}</p>
-                 {/* this is the name of the brand that is added to the cart */}
-                  <p>{product.brand}</p>
-                  {/* This is the price of the product added to the cart */}
-                  <p>{product.price}</p>
-                </div>
-              ))}
-            </h6>
+
+            {items?.map((product) => (
+              <ul className="list-group mb-3">
+                <li className="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 className="my-0">{product.nameOfProduct}</h6>
+                    <small className="text-muted">{product.brand}</small>
+                  </div>
+                  <span className="text-muted">${product.price}</span>
+                </li>
+
+                
+              </ul>
+            ))}
             <ul className="list-group mb-3">
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Product name</h6>
-                  <small className="text-muted">BRAND</small>
-                </div>
-                <span className="text-muted">$12</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Second product</h6>
-                  <small className="text-muted">BRAND</small>
-                </div>
-                <span className="text-muted">$8</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">Third item</h6>
-                  <small className="text-muted">BRAND</small>
-                </div>
-                <span className="text-muted">$5</span>
-              </li>
+              
               <li className="list-group-item d-flex justify-content-between bg-light">
-                <div className="text-success">
-                  <h6 className="my-0 promocodeControl">Promo code</h6>
-                  <small className="promocodeControl">EXAMPLECODE</small>
-                </div>
-                <span className="text promocodeControl">-$5</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between">
+                  <div className="text-success">
+                    <h6 className="my-0 promocodeControl">Promo code</h6>
+                    <small className="promocodeControl">EXAMPLECODE</small>
+                  </div>
+                  <span className="text promocodeControl">-$5</span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between">
                 <span>Total: {totalCost} (USD)</span>
                 {/* <strong>$20</strong> */}
               </li>
-              <button class='btn btn-dark btn-sm w-50 test' onClick={deleteWholeCart}>Remove the items from your cart</button>
             </ul>
-            <form className="card p-2">
+            
+            <form className="card p-2 border-light">
               <div className="input-group">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control border-light"
                   placeholder="Promo code"
                 />
+                
                 <div className="input-group-append">
-                  <button type="button" className="btn btn-secondary">
+                  <button type="button" className="btn btn-light border-light ">
                     APPLY
                   </button>
                 </div>
               </div>
+              <br></br>
+              <button
+          class="btn btn-outline-dark btn-sm w-50 test "
+          onClick={deleteWholeCart}
+        >
+         REMOVE ALL
+        </button>
             </form>
           </div>
-
-
+          
           <div className="col-md-8 order-md-1">
             <h4 className="mb-3">BILLING ADDRESS</h4>
             <form className="needs-validation" novalidate>
               <div className="row">
                 <div className="col-md-6 mb-3">
-                  <label for="firstName" className="textControlInForm">FIRST NAME</label>
+                  <label for="firstName" className="textControlInForm">
+                    FIRST NAME
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -121,7 +105,9 @@ function CheckOutPage() {
                   </div>
                 </div>
                 <div className="col-md-6 mb-3">
-                  <label for="lastName" className="textControlInForm">LAST NAME</label>
+                  <label for="lastName" className="textControlInForm">
+                    LAST NAME
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -150,7 +136,9 @@ function CheckOutPage() {
                 </div>
               </div>
               <div className="mb-3">
-                <label for="address" className="textControlInForm">ADDRESS</label>
+                <label for="address" className="textControlInForm">
+                  ADDRESS
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -175,9 +163,11 @@ function CheckOutPage() {
               </div>
               <div className="row">
                 <div className="col-md-5 mb-3">
-                  <label for="country" className="textControlInForm">COUNTRY</label>
+                  <label for="country" className="textControlInForm">
+                    COUNTRY
+                  </label>
                   <select
-                  className="custom-select d-block w-100"
+                    className="custom-select d-block w-100"
                     id="country"
                     required
                   >
@@ -189,9 +179,11 @@ function CheckOutPage() {
                   </div>
                 </div>
                 <div className="col-md-4 mb-3">
-                  <label for="state" className="textControlInForm">PROVINCE / STATE</label>
+                  <label for="state" className="textControlInForm">
+                    PROVINCE / STATE
+                  </label>
                   <select
-                  className="custom-select d-block w-100"
+                    className="custom-select d-block w-100"
                     id="state"
                     required
                   >
@@ -203,7 +195,9 @@ function CheckOutPage() {
                   </div>
                 </div>
                 <div className="col-md-3 mb-3">
-                  <label for="zip" className="textControlInForm">ZIP / POSTAL CODE</label>
+                  <label for="zip" className="textControlInForm">
+                    ZIP / POSTAL CODE
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -221,8 +215,11 @@ function CheckOutPage() {
                   className="custom-control-input"
                   id="same-address"
                 />
-                <label className="custom-control-label textControlInForm" for="same-address">
-                   SHIPPING ADDRESS IS THE SAME AS MY BILLING ADDRESS
+                <label
+                  className="custom-control-label textControlInForm"
+                  for="same-address"
+                >
+                  SHIPPING ADDRESS IS THE SAME AS MY BILLING ADDRESS
                 </label>
               </div>
               <div className="custom-control custom-checkbox">
@@ -231,8 +228,11 @@ function CheckOutPage() {
                   className="custom-control-input"
                   id="save-info"
                 />
-                <label className="custom-control-label textControlInForm" for="save-info" >
-                  SAVE THIS INFORMATION FOR NEXT TIME 
+                <label
+                  className="custom-control-label textControlInForm"
+                  for="save-info"
+                >
+                  SAVE THIS INFORMATION FOR NEXT TIME
                 </label>
               </div>
               <hr className="mb-4" />
@@ -247,7 +247,10 @@ function CheckOutPage() {
                     checked
                     required
                   />
-                  <label class="custom-control-label textControlInForm" for="credit">
+                  <label
+                    class="custom-control-label textControlInForm"
+                    for="credit"
+                  >
                     CREDIT CARD
                   </label>
                 </div>
@@ -259,7 +262,10 @@ function CheckOutPage() {
                     className="custom-control-input"
                     required
                   />
-                  <label className="custom-control-label textControlInForm" for="debit">
+                  <label
+                    className="custom-control-label textControlInForm"
+                    for="debit"
+                  >
                     DEBIT CARD
                   </label>
                 </div>
@@ -271,14 +277,19 @@ function CheckOutPage() {
                     className="custom-control-input"
                     required
                   />
-                  <label className="custom-control-label textControlInForm" for="paypal">
+                  <label
+                    className="custom-control-label textControlInForm"
+                    for="paypal"
+                  >
                     Paypal
                   </label>
                 </div>
               </div>
               <div className="row">
                 <div className="col-md-6 mb-3">
-                  <label for="cc-name" className="textControlInForm">NAME ON CARD</label>
+                  <label for="cc-name" className="textControlInForm">
+                    NAME ON CARD
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -289,10 +300,14 @@ function CheckOutPage() {
                   <small class="text-muted">
                     Full name as displayed on card
                   </small>
-                  <div className="invalid-feedback">Name on card is required</div>
+                  <div className="invalid-feedback">
+                    Name on card is required
+                  </div>
                 </div>
                 <div className="col-md-6 mb-3">
-                  <label for="cc-number" className="textControlInForm">CARD NUMBER</label>
+                  <label for="cc-number" className="textControlInForm">
+                    CARD NUMBER
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -307,7 +322,9 @@ function CheckOutPage() {
               </div>
               <div className="row">
                 <div className="col-md-3 mb-3">
-                  <label for="cc-expiration" className="textControlInForm">EXPIRATION</label>
+                  <label for="cc-expiration" className="textControlInForm">
+                    EXPIRATION
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -315,10 +332,14 @@ function CheckOutPage() {
                     placeholder=""
                     required
                   />
-                  <div className="invalid-feedback">Expiration date required</div>
+                  <div className="invalid-feedback">
+                    Expiration date required
+                  </div>
                 </div>
                 <div className="col-md-3 mb-3">
-                  <label for="cc-expiration" className="textControlInForm">CVV</label>
+                  <label for="cc-expiration" className="textControlInForm">
+                    CVV
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -330,7 +351,7 @@ function CheckOutPage() {
                 </div>
               </div>
               <hr className="mb-4" />
-              <button className="btn btn-dark btn-lg btn-block" type="button">
+              <button className="btn btn-outline-dark btn-md btn-block" type="button">
                 Continue to payment
               </button>
             </form>
