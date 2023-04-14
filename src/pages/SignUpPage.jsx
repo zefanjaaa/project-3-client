@@ -51,6 +51,7 @@ function SignUpPage() {
               name="email"
               value={email}
               onChange={handleEmail}
+              placeholder="email"
             />
             <span htmlFor="">
               <MdIcons.MdOutlineAlternateEmail></MdIcons.MdOutlineAlternateEmail>
@@ -63,6 +64,7 @@ function SignUpPage() {
               name="password"
               value={password}
               onChange={handlePassword}
+              placeholder="password"
             />
             <span htmlFor="">
               <RiIcons.RiLockPasswordLine></RiIcons.RiLockPasswordLine>
@@ -70,23 +72,25 @@ function SignUpPage() {
           </div>
 
           <div className="textbox">
-          <span htmlFor="">name</span>
+          <span htmlFor=""></span>
             <input
               type="text"
               value={name}
               name="password"
               onChange={handleName}
+              placeholder="name"
             />
             
           </div>
 
           <div className="textbox">
-          <span htmlFor="">surname</span>
+          <span htmlFor=""></span>
             <input
               type="text"
               value={surname}
               name="surname"
               onChange={handleSurname}
+              placeholder="surname"
             />
             
           </div>

@@ -46,11 +46,9 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
                  <Button variant="dark"> Create an account</Button>
           </Link> */}
 
-              
-                <Link to="/auth/login" className="ButtonControl">
-                  <Button variant="outline-light btn-sm">LOGIN</Button>
-                </Link>
-              
+              <Link to="/auth/login" className="ButtonControl">
+                <Button variant="outline-light btn-sm">LOGIN</Button>
+              </Link>
             </div>
           )}
 
@@ -64,8 +62,6 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
               <Link to="/wishlist" className="IconPerson">
                 <AiIcons.AiOutlineUser />
               </Link>
-
-        
 
               <BsIcons.BsBagFill className="IconBag" onClick={handleShowModal}>
                 {" "}
