@@ -120,6 +120,10 @@ span {
   margin-right: 10px;
 }
 
+.borderControl{
+  margin-right: 30px;
+}
+
 .YouLogo{
   color: rgb(157, 22, 215);
   /* font-weight: 600; */

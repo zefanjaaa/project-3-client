@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
-import BarDataTest  from "./BarDataTest";
+import BarDataTest from "./BarDataTest";
 import "../style/NavTest.css";
 import { IconContext } from "react-icons";
 import { Button, Modal } from "react-bootstrap";
@@ -31,25 +31,27 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
   const totalItemsInCart = getTotalItems();
   const totalPrice = getTotalCost();
 
-  return ( 
+  return (
     <div className="navAll">
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <FaIcons.FaBars onClick={showSidebar} className="BarsIcon" />
 
-          <NavLink to='/' className="YouLogoLink">
-          <h1 className="YouLogo">YOU.</h1>
+          <NavLink to="/" className="YouLogoLink">
+            <h1 className="YouLogo">YOU.</h1>
           </NavLink>
 
           {!isLoggedIn && (
             <div>
-               {/*<Link to="/auth/signup">
+              {/*<Link to="/auth/signup">
                  <Button variant="dark"> Create an account</Button>
-          </Link> */ }
+          </Link> */}
 
-              <Link to="/auth/login">
-                <Button variant="dark">Login</Button>
-              </Link>
+              
+                <Link to="/auth/login" className="ButtonControl">
+                  <Button variant="outline-light btn-sm">LOGIN</Button>
+                </Link>
+              
             </div>
           )}
 
@@ -80,9 +82,7 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
             <li className="navbar-toggle">
               <AiIcons.AiOutlineClose className />
             </li>
-            
-             
-             
+
             {BarDataTest.map((item, index) => {
               return (
                 <li key={index} className={item.className}>
@@ -93,7 +93,6 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
               );
             })}
           </ul>
-          
         </nav>
       </IconContext.Provider>
 
@@ -103,34 +102,35 @@ function NavbarTest({ price, image, brand, nameOfProduct, quantity, _id }) {
         </Modal.Header>
 
         <Modal.Body>
-          <h3 className="carth3">
-            {" "}
-          YOU HAVE: {totalItemsInCart} ITEMS
-          </h3>
+          <h3 className="carth3"> YOU HAVE: {totalItemsInCart} ITEMS</h3>
         </Modal.Body>
 
         <Modal.Body>
-        <Button variant="dark" onClick={deleteWholeCart}> Delete Cart</Button>
+          <Button variant="dark" onClick={deleteWholeCart}>
+            {" "}
+            Delete Cart
+          </Button>
         </Modal.Body>
         <Modal.Body>
           {items?.map((product) => (
             <div>
-            
-              <p className="p-test">{product.nameOfProduct}<span></span>{product.quantity}X</p>
-             
+              <p className="p-test">
+                {product.nameOfProduct}
+                <span></span>
+                {product.quantity}X
+              </p>
+
               <p className="p-test">${product.price}</p>
               <hr></hr>
             </div>
           ))}
 
-         
-          <Modal.Title> TOTAL PRICE: ${totalPrice}{" "}</Modal.Title>
-        
-        <br></br>
-        <Link to="/checkout">
-        <Button variant="dark"> Go To Checkout</Button>
-      </Link>
+          <Modal.Title> TOTAL PRICE: ${totalPrice} </Modal.Title>
 
+          <br></br>
+          <Link to="/checkout">
+            <Button variant="dark"> Go To Checkout</Button>
+          </Link>
         </Modal.Body>
       </Modal>
     </div>
