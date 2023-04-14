@@ -41,6 +41,7 @@ function SalePage() {
   return (
     <div className="allProductsPage">
       <Container>
+      <br></br>
         <h1>SALE</h1>
 
         <div className="allProducts" key={products._id}>

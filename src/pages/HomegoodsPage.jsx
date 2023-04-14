@@ -41,6 +41,7 @@ filterProducts();
   return (
     <div className="allProductsPage">
     <Container>
+    <br></br>
     <h1>HOME DÉCOR</h1>
     
     <div className='allProducts' >

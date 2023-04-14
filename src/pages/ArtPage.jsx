@@ -41,6 +41,7 @@ function ArtPage() {
   return (
     <div className="allProductsPage">
       <Container>
+      <br></br>
       <h1>ART</h1>
      
       <div className='allProducts' >

@@ -36,6 +36,7 @@ function AllProductsPage() {
 
   <div className="allProductsPage">
       <Container>
+      <br></br>
       <h1>NEW ARRIVALS</h1>
     
     <div className='allProducts' key={products._id}>
